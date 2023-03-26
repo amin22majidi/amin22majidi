@@ -1,0 +1,6080 @@
+
+
+//new content
+function ajax_remove_menu_category(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_menu_category",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function ajax_menu_category(idx = "") {
+
+    if (idx == "") txt_header = "ایجاد";
+    else txt_header = "ویرایش";
+
+    open_model();
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_menu_category",
+        dataType: "text",
+
+        data: { id: idx, shop: shop, collection: collection, category: category },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_img_butik(kind, idx = "") {
+
+
+    sample_linka("/admin/new_img_butik", "_blank");
+    return false;
+    if (idx == "") txt_header = "ایجاد";
+    else txt_header = "ویرایش";
+
+    open_model(1);
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_img_butik",
+        dataType: "text",
+
+        data: { id: idx, kind: kind },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_filter_butik(kind, idx = "") {
+
+
+    sample_linka("/admin/new_filter_butik", "_blank");
+    return false;
+    if (idx == "") txt_header = "ایجاد";
+    else txt_header = "ویرایش";
+
+    open_model(1);
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_filter_butik",
+        dataType: "text",
+
+        data: { id: idx, kind: kind },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_filter_item(kind, idx = "") {
+
+    if (idx == "") txt_header = "ایجاد";
+    else txt_header = "ویرایش";
+
+    open_model();
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_filter_item",
+        dataType: "text",
+
+        data: { id: idx, kind: kind },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_translate(idx = "") {
+
+    if (idx == "") txt_header = "ایجاد ترجمه";
+    else txt_header = "ویرایش ترجمه";
+
+    open_model();
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_translate  ",
+        dataType: "text",
+
+        data: { id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function ajax_remove_img_butik(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_img_butik",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_remove_filter_butik(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_filter_butik",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+function ajax_remove_filter_item(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_filter_item",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_remove_translate(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_translate",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+//export_db
+
+function reload_tble(str, name) {
+    alert("htmlTable");
+    $(".export_db1").html(str);
+    new_export1(name);
+
+}
+function creat_table1() {
+    var head = $("#export_db thead").html();
+    var body = $("#export_db tbody").html();
+
+
+    var head_finall = "<thead><tr>";
+
+
+    var index = 0;
+    $(head + "tr").each(function () {
+        //if(is_array_ok(list,index++)) {return true;}
+        $(this).find('th').each(function () {
+
+            if ($(this).text() == "#") head_finall += "<td></td>";
+            else head_finall += "<td>" + $(this).text() + "</td>";
+        });
+    });
+    head_finall += "</tr></thead>";
+
+    var body_finall = "<tbody>"; var i = 0;
+    $(body + "tr").each(function () {
+
+        body_finall += "<tr>";
+        var index = 0;
+        $(this).find('td').each(function () {
+            //if(is_array_ok(list,index++)) {return true;}
+
+            body_finall += "<td>" + $(this).html() + "</td>";
+        });
+        body_finall += "</tr>";
+    });
+
+    body_finall += "</tbody>";
+
+    var table = "<table border='1' >";
+    table = table + head_finall;
+    table = table + body_finall;
+    table = table + "</table>";
+
+    return table;
+
+}
+
+function new_export1(name) {
+    var downloadedFileName = 'excel_table_data';
+    var TableDataType = 'data:application/vnd.ms-excel,';
+    var htmlTable = creat_table1().replace(/ /g, '%20');//tableSelect.outerHTML
+
+
+    var tab_text = "";
+    tab_text = '<html xmlns:x="urn:schemas-microsoft-com:office:excel">';
+    tab_text = tab_text + '<head><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>';
+    tab_text = tab_text + '<x:Name>Test</x:Name>';
+    tab_text = tab_text + '<x:WorksheetOptions><x:Panes></x:Panes></x:WorksheetOptions></x:ExcelWorksheet>';
+    tab_text = tab_text + '</x:ExcelWorksheets></x:ExcelWorkbook></xml></head><body>';
+    tab_text = tab_text + "";
+    tab_text = tab_text + htmlTable;
+    tab_text = tab_text + '</body></html>';
+
+    var fileName = name + ".xls";
+    //filename = filename?filename+'.xls':downloadedFileName+'.xls';
+    var downloadingURL = document.createElement("a");
+    document.body.appendChild(downloadingURL);
+
+    if (navigator.msSaveOrOpenBlob) {
+        var blob = new Blob(['\ufeff', tab_text], {
+            type: TableDataType
+
+        });
+        navigator.msSaveOrOpenBlob(blob, fileName);
+    } else {
+
+        downloadingURL.href = 'data:' + TableDataType + ', ' + tab_text;
+        downloadingURL.download = fileName;
+        downloadingURL.click();
+    }
+}
+
+function strip_tags(input, allowed) {
+    allowed = (((allowed || '') + '').toLowerCase().match(/<[a-z][a-z0-9]*>/g) || []).join('')
+    var tags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi
+    var commentsAndPhpTags = /<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi
+    return input.replace(commentsAndPhpTags, '').replace(tags, function ($0, $1) {
+        return allowed.indexOf('<' + $1.toLowerCase() + '>') > -1 ? $0 : ''
+    })
+}
+
+function is_array_ok(list, val_top) {
+
+
+
+    for (i = 0; i < list.length; ++i) {
+
+        if (list[i] == val_top) return true;
+    }
+
+    return false;
+}
+function creat_table(list) {
+    var head = $(".jsgrid-table .jsgrid-header-row:first-child").html();
+    var body = $("#jsgridtablenew tbody").html();
+
+    var head_finall = "<thead><tr>";
+
+
+    var index = 0;
+    $(head + "tr th").each(function () {
+        if (is_array_ok(list, index++)) { return true; }
+        if ($(this).text() == "#") head_finall += "<td></td>";
+        else head_finall += "<td>" + $(this).text() + "</td>";
+    });
+    head_finall += "</tr></thead>";
+
+    var body_finall = "<tbody>"; var i = 0;
+    $(body + "tr ").each(function () {
+
+        body_finall += "<tr>";
+        var index = 0;
+        $(this).find('td').each(function () {
+            if (is_array_ok(list, index++)) { return true; }
+            body_finall += "<td>" + strip_tags($(this).html(), "<span>") + "</td>";
+        });
+        body_finall += "</tr>";
+    });
+    body_finall += "</tbody>";
+
+    var table = "<table border='1' >";
+    table = table + head_finall;
+    table = table + body_finall;
+    table = table + "</table>";
+
+    return table;
+
+}
+
+function new_export(list, elem) {
+    var downloadedFileName = 'excel_table_data';
+    var TableDataType = 'data:application/vnd.ms-excel,';
+    var htmlTable = creat_table(list).replace(/ /g, '%20');//tableSelect.outerHTML
+    var name = $(elem).attr("data-name");
+
+    var tab_text = "";
+    tab_text = '<html xmlns:x="urn:schemas-microsoft-com:office:excel">';
+    tab_text = tab_text + '<head><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>';
+    tab_text = tab_text + '<x:Name>Test</x:Name>';
+    tab_text = tab_text + '<x:WorksheetOptions><x:Panes></x:Panes></x:WorksheetOptions></x:ExcelWorksheet>';
+    tab_text = tab_text + '</x:ExcelWorksheets></x:ExcelWorkbook></xml></head><body>';
+    tab_text = tab_text + "";
+    tab_text = tab_text + htmlTable;
+    tab_text = tab_text + '</body></html>';
+
+    var fileName = name + ".xls";
+    //filename = filename?filename+'.xls':downloadedFileName+'.xls';
+    var downloadingURL = document.createElement("a");
+    document.body.appendChild(downloadingURL);
+
+    if (navigator.msSaveOrOpenBlob) {
+        var blob = new Blob(['\ufeff', tab_text], {
+            type: TableDataType
+
+        });
+        navigator.msSaveOrOpenBlob(blob, fileName);
+    } else {
+
+        downloadingURL.href = 'data:' + TableDataType + ', ' + tab_text;
+        downloadingURL.download = fileName;
+        downloadingURL.click();
+    }
+}
+
+
+
+
+//export
+
+
+
+
+function separate1(value, input = "") {
+    /* seprate number input 3 number */
+    var nStr = value + '';
+    nStr = nStr.replace(/\,/g, "");
+    x = nStr.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+
+    return x1 + x2;
+}
+
+
+
+//lazy load
+
+
+//lazy load
+
+
+
+
+
+
+
+
+
+
+
+var ajaxIsWorking = true;
+var now_page = 2;
+var now_page_cat = 3;
+var parent_href = "";
+
+if (lname == "") now_page_cat = 2;
+
+
+function together_input(elem) {
+
+    var elem2 = $(elem).parent(".parent_pass_input").find("input[type='password']");
+    var show = $(elem).attr("data-show");
+
+    if (show == 0) {
+        $(elem2).attr("type", "text");
+        $(elem).find(".itog").removeClass("bx-show").addClass("bx-hide");
+        $(elem).attr("data-show", 1);
+    } else {
+        elem2 = $(elem).parent(".parent_pass_input").find("input[type='text']");
+        $(elem2).attr("type", "password");
+        $(elem).find(".itog").addClass("bx-show").removeClass("bx-hide");
+        $(elem).attr("data-show", 0);
+
+    }
+}
+
+function just_number(event, elem, valn) {
+
+
+    var ew = event.which;
+
+
+    if (ew == "") return true;
+    if (ew == undefined || ew == "undefined") return true;
+    if (ew == 8) return true;
+    if (ew == 9) return true;
+    if (ew == 18) return true;
+    if (ew == 16) return true;
+    if (ew == 13) return true;
+    //console.log(ew);
+    if (/^[0-9]+$/.test(valn)) {
+        //$(elem).val("");
+
+        //labelok("no",valn);
+        return false;
+    }
+    else {
+
+        labelok("no", "کاربر گرامی فقط وارد کردن اعداد مجاز می باشد");
+
+        $(elem).val("");
+
+        return false;
+    }
+}
+
+function just_number_word_persian(event, elem, valn) {
+
+
+    var ew = event.which;
+
+    if (ew == 8) return true;
+    if (ew == 9) return true;
+    if (ew == 18) return true;
+    if (ew == 16) return true;
+    if (ew == 13) return true;
+    if (ew == 32) return true;
+    if (ew == 190) return true;
+
+    var arregex = /^[a-zA-Z_ ]*$/;
+    var arregexfa = /^[پچجحخهعغفقثصضشسیبلاتنمکگوئدذرزطظژؤإأءً]+$/;
+    var arregexnumber = /^[0-9]*$/;
+
+    if (arregexfa.test(event.key)) {
+
+        return false;
+    } else if (arregexnumber.test(event.key)) {
+
+        return false;
+    }
+    else {
+        labelok("no", "کاربر گرامی فقط وارد کردن حروف فارسی مجاز می باشد");
+        $(elem).val("");
+        return false;
+
+    }
+}
+function just_number_word(event, elem, valn) {
+
+
+    var ew = event.which;
+
+    if (ew == 8) return true;
+    if (ew == 9) return true;
+    if (ew == 18) return true;
+    if (ew == 16) return true;
+    if (ew == 13) return true;
+    if (ew == 32) return true;
+
+    var arregex = /^[a-zA-Z_ ]*$/;
+    var arregexfa = /^[پچجحخهعغفقثصضشسیبلاتنمکگوئدذرزطظژؤإأءً]+$/;
+    var arregexnumber = /^[0-9]*$/;
+
+    if (arregex.test(event.key)) {
+
+        return false;
+    } else if (arregexfa.test(event.key)) {
+
+        return false;
+    } else if (arregexnumber.test(event.key)) {
+
+        return false;
+    }
+    else {
+        labelok("no", "کاربر گرامی فقط وارد کردن حروف فارسی و انگلیسی مجاز می باشد");
+
+        $(elem).val("");
+        return false;
+
+    }
+}
+function just_word_persian(event, elem, valn) {
+
+
+    var ew = event.which;
+
+    if (ew == 8) return true;
+    if (ew == 9) return true;
+    if (ew == 18) return true;
+    if (ew == 16) return true;
+    if (ew == 13) return true;
+    if (ew == 32) return true;
+    if (ew == 190) return true;
+
+    var arregex = /^[a-zA-Z_ ]*$/;
+    var arregexfa = /^[پچجحخهعغفقثصضشسیبلاتنمکگوئدذرزطظژؤإأءً]+$/;
+
+
+    if (arregexfa.test(event.key)) {
+
+        return false;
+    }
+    else {
+        labelok("no", "کاربر گرامی فقط وارد کردن حروف فارسی مجاز می باشد");
+
+        $(elem).val("");
+        return false;
+
+    }
+}
+function just_number_word_latin(event, elem, valn) {
+
+
+    var ew = event.which;
+
+    if (ew == 8) return true;
+    if (ew == 9) return true;
+    if (ew == 18) return true;
+    if (ew == 16) return true;
+    if (ew == 13) return true;
+
+    var arregex = /^[a-zA-Z@._ ]*$/;
+
+
+    if (arregex.test(event.key)) {
+
+        return false;
+    }
+    else {
+        labelok("no", "کاربر گرامی فقط حروف انگلیسی مجاز می باشد");
+
+        $(elem).val("");
+        return false;
+
+    }
+}
+function toLowerCase1(str) {
+
+    return str.toLowerCase();
+    str.toLowerCase().replace(/\b[a-z]/g, function (letter) {
+        return letter.toUpperCase();
+    });
+}
+function str_vhd() {
+
+
+    return "<span class='vhd'>" + currency + "</div>";
+}
+
+
+
+
+
+function load_filter(page = 1, now_href = "", new_pagw = 1) {
+    var source_src = urlbase + "load_filter";
+    if (now_href == "" && parent_href == "") now_href = window.top.location.href;
+    else if (parent_href != "") now_href = parent_href;
+    $.ajax({
+        type: "post",
+        url: source_src,
+        dataType: "json",
+        data: { page: page, now_url: now_href, lname: lname, shop: shop, kindshow: kindshow },
+        success: function (_result) {
+            if (_result.status == "success") {
+                if (_result.ret == "") {
+                    //labelok("no","");
+                    return false;
+                } else {
+                    if (_result.ret.selectedFilters != '') $(".selectedFilters_new").html(_result.ret.selectedFilters);
+                    $(".load_filter").html(_result.ret.str);
+                    $(".filter-clean").attr("href", _result.ret.clearAll);
+                    //if (new_pagw == 1)
+                    Wolmart.menu.initFilterMenu();
+                }
+                //$(".load_date .single_result").addClass("animate__jackInTheBox");
+            }
+        },
+        error: function (err) {
+            //labelok("no",err.responseText);
+        }
+    });
+}
+
+var live_run = 0, no_home = 0, kind_photo = 0;
+function load_collection(page = 1, now_href = "") {
+
+
+    ajaxIsWorking = true;
+
+    var source_src = urlbase + "load_collection", photo_new = "";
+    var nhtml = "";
+    if (now_href == "") now_href = window.top.location.href;
+
+    on_loading();
+
+    $.ajax({
+        type: "post",
+        url: source_src,
+        dataType: "json",
+
+        data: { page: page, now_url: now_href, lname: lname, shop: shop, kind_photo: kind_photo, no_home: no_home },
+        success: function (_result) {
+
+
+            if (_result.status == "success") {
+
+                if (_result.ret.Get_baaner != "" && page == 1) {
+
+                    $(".banner_right_slider .banner-placeholders").html("");
+                    var chtml2 = "";
+                    $.each(_result.ret.Get_baaner, function () {
+
+                        chtml2 = `<div class="banner_right_new">
+                                <a href="`+ this["link"] + `" class="lnk_top"></a>
+                                <figure class=" banner_right_img" >
+                                    
+                                        <img data-src="" src="`+ this["src"] + `" alt="` + this["name"] + `"     height="75" />
+                                    
+                                </figure>
+                                <div class="banner_right_cnt">
+                                <div class="banner-content"><div class="banner-content">
+                                <h5 class="banner-subtitle text-white text-uppercase ls-25 font-weight-bold">`+ this["name"] + `</h5>
+                                
+                                <a href="`+ this["link"] + `" class="btn btn-white btn-outline btn-rounded">مشاهده</a>
+                                </div></div>
+                                </div>`;
+
+                        chtml2 += `</div>`;
+
+
+                        $(".banner_right_slider .banner-placeholders").append(chtml2);
+                    });
+
+                }
+
+                if (_result.ret.circled != "" && page == 1) {
+
+                    $(".load_cir").html("");
+                    var chtml = "";
+                    $.each(_result.ret.circled, function () {
+
+                        chtml = `<div class="swiper-slide category category_ellipse">
+                                <a href="`+ this["href"] + `" class="lnk_top"></a>
+                                <figure class=" category_media" >
+                                    
+                                        <img data-src="" src="`+ this["photo"] + `" alt="` + this["name"] + `"     height="75" />
+                                    
+                                </figure>
+                                <div class="category_content">
+                                    <h4 class="category_name">
+                                       `+ this["name"] + `
+                                    </h4>
+                                </div>
+                            </div>`;
+
+
+                        $(".load_cir").append(chtml);
+                    });
+                    if (page == 1 && no_home == 0) {
+                        Wolmart.call(Wolmart.init);
+
+                    }
+                    //
+                }
+
+                if (_result.ret.next > 0) { }
+                else {
+                    $(".appand2").empty();
+                }
+                if (_result.ret == "") {
+                    if (page == 1) labelok("no", "موردی یافت نشد");
+                    $(".appand2").empty();
+                    //else labelok("no","پایان بوتیک ها");
+                    off_loading();
+                    return false;
+                } else {
+                    if (page == 1) $(".load_big_date").html("");
+                    //$(".number_product").html("<span>تعداد محصولات : "+_result.ret.cnt+"</span>");
+                    off_loading(); var step_product = 0; cls_mt4 = " ";
+                    $.each(_result.ret.str, function () {
+
+                        var new_p = 0;
+
+
+                        if (no_home == 1 && page == 1) cls_loading();
+                        var extra_fetcher = "", extra_fetcher2 = "";
+                        if (no_home == 1) {
+
+                            extra_fetcher2 = "<div class='box_select'><input type='checkbox' name='product_id[]'  value='" + this["id"] + "|||" + this["name"] + "|||" + this["href"] + "|||" + this["photo"] + "|||" + this["step"] + "' /></div>";
+                            extra_fetcher = " target='_blank' ";
+
+                        }
+
+
+                        if (no_home == 1) photo_new = this["photo1"];
+                        else photo_new = this["photo"];
+
+                        if (page == 1 && step_product <= 2) cls_mt4 = " ";
+                        else cls_mt4 = " mt-4 ";
+                        var nhtml0 = `<div class="category-wrap ` + cls_mt4 + ` " st role="group" >
+                                    <div class="category category-default1 category-absolute br-sm">
+                                        <a href="`+ this["href"] + `"  >
+                                            <figure class="max_height154 product-media img category-media">
+                                                <img class='lazy' data-src="`+ lazy_product + `" src="` + photo_new + `" alt="` + this["name"] + `"  width="295" height="295">
+                                            </figure>
+                                        </a>
+                                        <div class="category-content">
+                                            <div class='ncategory_content'></div>
+                                            <h4 class="category-name" title="`+ this["name"] + `" >` + this["name"] + `</h4>
+                                            <span class="category-count">مشاهده</span>
+                                        </div>
+                                    </div>
+                                </div>`;
+
+                        if (page == 1) {
+
+                            nhtml = `<article class="component-item">
+                            `+ extra_fetcher2 + `
+                                            <a href="`+ this["href"] + `" ` + extra_fetcher + ` class="campaign campaign-big"
+                                            data-enhanced="" data-type="banner"><span class="image-container">
+                                            <img class='lazy' data-src="`+ lazy_product + `" src="` + photo_new + `" alt="` + this["name"] + `" /></span>
+                                            <summary class="campaign-summary"><span class="name">`+ this["name"] + `</span>
+                                            <span class="timeline"><i class="icon icon-time-white"></i><span class="timer"></span></span>
+                                            <div class="hover-text"><span>مشاهده</span><i class="icon icon-arrow-banner-white"></i></div></summary></a>`;
+                            if (no_home == 1) nhtml += `<div class='chg_photo' >` + this['New_photo'] + `</div>`;
+                            nhtml += `</article>`;
+                        }
+                        else {
+                            nhtml = `<article class="component-item">
+                            `+ extra_fetcher2 + `
+                               <a href="`+ this["href"] + `" ` + extra_fetcher + ` class="campaign campaign-small" 
+                               data-enhanced="" data-tracker="seen:homepage-component" data-id="" data-type="banner">
+                               <span class="image-container"><img  class='lazy' data-src="`+ lazy_product + `" src="` + this["photo"] + `" alt="` + this["name"] + `"  /></span>
+                               <summary class="campaign-summary"><span class="name">`+ this["name"] + `</span>
+                               <div class="hover-text"><span>مشاهده</span><i class="icon icon-arrow-banner-white"></i></div>
+                               </summary></a>`;
+                            if (no_home == 1) nhtml += `<div class='chg_photo' >` + this['New_photo'] + `</div>`;
+                            nhtml += `</article>`;
+                        }
+
+
+
+
+                        if (page == 1) $(".load_big_date").append(nhtml);
+                        else $(".load_date_cat").append(nhtml);
+                        step_product++;
+                    });
+                    ajaxIsWorking = false;
+                }
+
+
+
+                if (live_run < 1) {// && lname!=""
+                    load_collection(now_page_cat++);
+                    ajaxIsWorking = true;
+                    live_run++;
+                } else live_run = 0;
+
+                //$(".load_date .single_result").addClass("animate__jackInTheBox");
+
+            }
+
+
+        },
+        error: function (err) {
+            off_loading();
+            //labelok("no",err.responseText);
+            ajaxIsWorking = false;
+        }
+
+
+    });
+
+
+}
+
+function load_product_sample(productid = "", flag_sample_product = 0, flag_else_product = 0) {
+
+
+
+    var source_src = urlbase + "load_product_sample";
+
+    var now_href = window.top.location.href;
+    var storefrontId = "";
+
+    if (flag_sample_product == 1) {
+        $.ajax({
+            type: "post",
+            url: source_src,
+            dataType: "json",
+
+            data: {
+                lname: lname,
+                now_url: now_href,
+                storefrontId: storefrontId,
+                shop: shop,
+                productid: productid
+
+            },
+            success: function (_result) {
+
+                if (_result.status == "success") {
+
+
+                    if ((_result.ret != "")) {    //  
+
+
+                        $(".load_sample_product").html("");
+                        //$(".load_sample_product").addClass("d-flex");
+                    } else {
+                        $(".nsample_product1").hide();
+                    }
+
+
+                    $.each(_result.ret.str, function () {
+
+
+
+                        var new_p = 0;
+                        var nhtml = `<div class="swiper-slide product-wrap" >
+                                    <div class="product text-center" >
+                                        <figure class="product-media">
+                                            <a href="`+ this["href"] + `">
+                                                <img class='lazy' data-src="`+ lazy_product + `" src="` + this["photo"][0]["photo1"] + `" alt="` + this["alt"] + `" width="244" height="366">`;
+
+                        if (this["photo"][1]) {
+                            nhtml += `<img  class='lazy' data-src="` + lazy_product + `" src="` + this["photo"][1]["photo1"] + `" alt="` + this["alt"] + `" width="244" height="366">`;
+                        }
+
+
+                        nhtml += `</a>
+                                            <div class="product-action-vertical none">
+                                              
+                                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart" title="افزودن به علاقه مندی"></a>
+                                                
+                                            </div>`;
+
+                        off = "20";
+                        if (this["price"]["has_off"] == 1 && this["price"]["off_ampunt"] > 0)
+                            nhtml += `<div class="product-label-group2"><label class="product-label prlo">%` + this["price"]["off_ampunt"] + ` </label></div> `;
+
+                        if (new_p != "")
+                            nhtml += `<div class="product-label-group1 prl"><label class="product-label prln">New</label></div>`;
+
+
+                        nhtml += `</figure>
+                                        <div class="product-details">
+                                            <div class="product-cat">
+                                                <a href="`+ this["href"] + `">` + this["brand"]["name"] + `</a>
+                                            </div>
+                                            <h3 class="product-name">
+                                                <a href="`+ this["href"] + `">` + this["name"] + `</a>
+                                            </h3>
+                                           
+                                            <div class="product-pa-wrapper">
+                                                <div class="product-price">
+                                                    `+  this["html_price"] +`
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+
+                        $(".load_sample_product").append(nhtml);
+
+
+
+                    });
+
+
+                }
+                load_product_else(productid, flag_else_product);
+            },
+            error: function (err) {
+                load_product_else(productid, flag_else_product);
+                //labelok("no",err.responseText);
+
+            }
+
+
+        });
+    }
+    else
+
+        load_product_else(productid, flag_else_product);
+
+}
+
+
+function load_product_else(productid = "", flag_else_product = 0) {
+
+
+
+    var source_src = urlbase + "load_product_else";
+    var storefrontId = "";
+    var now_href = window.top.location.href;
+
+    if (flag_else_product == 1)
+        $.ajax({
+            type: "post",
+            url: source_src,
+            dataType: "json",
+
+            data: {
+                lname: lname,
+                now_url: now_href,
+                storefrontId: storefrontId,
+                shop: shop,
+                productid: productid
+
+            },
+            success: function (_result) {
+                if (_result.status == "success") {
+
+                    if (_result.ret == "") {
+
+                    }
+
+
+
+                    if ((_result.ret != "")) {    //    
+                        $(".load_else_product").html("");
+                        //$(".load_sample_product").addClass("d-flex");
+                    } else {
+                        $(".sample_product2").hide();//nsample_product2
+                    }
+
+
+                    $.each(_result.ret.str, function () {
+
+
+
+
+                        var new_p = 0;
+                        var nhtml = `<div class="swiper-slide product-wrap" >
+                                    <div class="product text-center" >
+                                        <figure class="product-media">
+                                            <a href="`+ this["href"] + `">
+                                                <img class='lazy' data-src="`+ lazy_product + `" src="` + this["photo"][0]["photo1"] + `" alt="` + this["alt"] + `" width="244" height="366">`;
+
+                        if (this["photo"][1]) {
+                            nhtml += `<img  class='lazy' data-src="` + lazy_product + `" src="` + this["photo"][1]["photo1"] + `" alt="` + this["alt"] + `" width="244" height="366">`;
+                        }
+
+
+                        nhtml += `</a>
+                                            <div class="product-action-vertical none">
+                                                
+                                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart" title="افزودن به علاقه مندی"></a>
+                                               
+                                            </div>`;
+
+                        off = "20";
+                        if (this["price"]["has_off"] == 1 && this["price"]["off_ampunt"] > 0)
+                            nhtml += `<div class="product-label-group2"><label class="product-label prlo">%` + this["price"]["off_ampunt"] + ` </label></div> `;
+
+                        if (new_p != "")
+                            nhtml += `<div class="product-label-group1 prl"><label class="product-label prln">New</label></div>`;
+
+
+                        nhtml += `</figure>
+                                        <div class="product-details">
+                                            <div class="product-cat">
+                                                <a href="`+ this["href"] + `">` + this["brand"]["name"] + `</a>
+                                            </div>
+                                            <h3 class="product-name">
+                                                <a href="`+ this["href"] + `">` + this["name"] + `</a>
+                                            </h3>
+                                           
+                                            <div class="product-pa-wrapper">
+                                                <div class="product-price">
+                                                    `+   this["html_price"] + `
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+
+                        $(".load_else_product").append(nhtml);
+
+
+
+                    });
+
+                    Wolmart.call(Wolmart.init, 1);
+                } else Wolmart.call(Wolmart.init, 1);
+
+            },
+            error: function (err) {
+                Wolmart.call(Wolmart.init, 555);
+                //labelok("no",err.responseText);
+
+            }
+
+
+        });
+    else Wolmart.call(Wolmart.init, 11);
+
+
+}
+
+
+function load_product_review(productid = "", productGroupId, storefrontId = "") {
+
+
+
+    var source_src = urlbase + "load_product_review";
+
+    var now_href = window.top.location.href;
+
+
+    $.ajax({
+        type: "post",
+        url: source_src,
+        dataType: "json",
+
+        data: {
+            lname: lname,
+            now_url: now_href,
+            storefrontId: storefrontId,
+            shop: shop,
+            productGroupId: productGroupId,
+            productid: productid
+
+        },
+        success: function (_result) {
+            if (_result.status == "success") {
+
+                if (_result.ret.summary.RatingCount) {
+                    $(".comment_t1").html("<span>" + _result.ret.summary.RatingCount + " ارزیابی </span>");
+
+                    $(".com2").html("<span>" + _result.ret.summary.RatingCount + " نظر </span>");
+
+                    $(".com3").html("<span>" + _result.ret.summary.CommentCount + " ارزیابی </span>");
+
+                    $(".show_rate_b span").text(_result.ret.summary.Rating);
+                } else {
+                    $(".com2").html("");
+                    $(".com3").html("");
+                }
+
+
+
+                if (_result.ret.summary.star != "") {
+                    $(".top_dsc1").html(_result.ret.summary.star);
+                }
+
+
+
+                //init comment
+
+                var com_div = "", cls_com = "";
+                var idx_com = 0;
+                if (_result.ret.comment.comment != "")
+                    $.each(_result.ret.comment.comment, function () {
+                        cls_com = "";
+                        if (idx_com > 5) cls_com = "none more_com";
+                        com_div = `
+                                                        <article  class="`+ cls_com + ` rnr-com-w" >
+                                                        <div class="rnr-com-cn">
+                                                            <div class="rnr-com-tx">
+                                                            <span class='rnr-inline-rating'>`+ this.star + `</span>
+                                                            <p>`+ this.cms + `</p>
+                                                            </div></div>
+                                           
+                                           <div class="rnr-com-bt">
+                                                <span class="rnr-com-usr">
+                                                
+                                                    `+ this.userFullName + `
+                                                    <span class="pipe">|</span>
+                                                    
+                                                    
+                                                    <span class="comment_date">`+ this.comment_date + `</span>
+                                                    
+                                                    <span class="seller-name-desc">
+                                                    <span class="pipe">|</span>
+                                                     از فروشنده
+                                                     
+                                                      `
+                            +
+                            `
+                                                      <span class='seller-name-info'>
+                                                   `
+                            + this.sellerName + `    
+                                                      </span>
+                                                      خریداری شده
+                                                    </span>
+                                                    
+                                                    
+                                                </span>
+                                                
+                                           </div>                 
+                                                        
+                                                        </article>
+                                                
+                                                `;
+                        $(".Comment_content").append(com_div); idx_com++;
+                    });
+
+                $(".Comment_content").show();
+                //init comment
+
+
+
+
+
+
+
+
+
+
+
+            }
+
+        },
+        error: function (err) {
+
+            //labelok("no",err.responseText);
+
+        }
+
+
+    });
+
+
+}
+
+
+
+function load_product_color(productid = "", productGroupId, storefrontId = "") {
+
+
+
+    var source_src = urlbase + "load_product_color";
+
+    var now_href = window.top.location.href;
+
+
+    $.ajax({
+        type: "post",
+        url: source_src,
+        dataType: "json",
+
+        data: {
+            lname: lname,
+            now_url: now_href,
+            storefrontId: storefrontId,
+            shop: shop,
+            productGroupId: productGroupId,
+            productid: productid
+
+        },
+        success: function (_result) {
+            if (_result.status == "success") {
+
+                if (_result.ret == "") {
+
+                }
+
+
+
+                if (_result.ret.str) {    //_result.ret.str[0]!=""    
+                    $(".product-short-color").html("");
+                    $(".color_show").removeClass("none");
+                    $(".box_clr").removeClass("none");
+                    //$(".product-short-color").addClass("d-flex");
+                }
+
+
+                $.each(_result.ret.str, function () {
+
+                    var new_p = 0;
+                    var selectd = "";
+                    if (this["selectd"] == 1) selectd = "selectd_cls";
+
+                    var nhtml = `<div class="swiper-slide   product-wrap product_hidden ` + selectd + ` " >
+                                    <div class="product text-center" >
+                                        <figure class="product-media">
+                                            <a targrt="_blank" href="`+ this["href"] + `">
+                                                <img class='lazy' data-src="`+ lazy_product + `" src="` + this["photo"] + `" alt="` + this["name"] + `" width="82" height="122">`;
+
+
+
+
+                    if (this["price"]["has_off"] == 1 && this["price"]["off_ampunt"] > 0)
+                        nhtml += `<div class="product-label-group2"><label class="product-label prlo">%` + this["price"]["off_ampunt"] + ` </label></div> `;
+
+                    nhtml += "</a>";
+
+                    nhtml += `</figure>
+                                       
+                                    </div>
+                                </div>`;
+                    $(".product-short-color").append(nhtml);
+
+
+                });
+
+
+            }
+
+        },
+        error: function (err) {
+
+            //labelok("no",err.responseText);
+
+        }
+
+
+    });
+
+
+}
+
+$(function () {
+    //stickyProduct('.product-sticky-content');
+});
+
+
+
+function reload_addres() {
+
+
+    $.ajax({
+        type: "post",
+        url: urlbase + "load_addres",
+        dataType: "json",
+
+        data: {},
+        success: function (_result) {
+
+            if (_result.status == "success") {
+
+
+                var str = ""; var addres = "";
+                var cnt = _result.cnt;
+
+                if (cnt == 1) selected = ' checked '; else selected = '';
+                $(".add_li2").remove();
+                $.each(_result.ret, function () {
+                    addres = "";
+
+                    if (this["pro"] != "") addres += this["pro"] + " - ";
+                    if (this["city"] != "") addres += this["city"] + " - ";
+                    if (this["addres"] != "") addres += this["addres"];
+
+                    str = `<li class='add_li add_li2 col-md-4 col-sm-12 col-4'>`;
+                    str += `<div class='radd1  d-flex mb-1'>
+                                                            
+                                                            <div class="chk_box select_addres  col-8 pl-0">
+                                                            <input `+ selected + ` type="radio" class="ichk_box" name="addres" value="` + this["id"] + `"><span></span><d>` + this["subject"] + `</d>
+                                                            </div>
+                                                            
+                                                            <div class="chk_box select_addres col-4 text-right pr-0"><span class='edit_addres'>ویرایش</span></div>
+                                                            </div>`;
+
+
+                    str += `<div class='radd2'>
+                                                                    <div class=' d-flex mb-1'>
+                                                                    <span class='rname col-6 pl-0'>`+ this["name"] + `</span>
+                                                                    <span class='lname col-6 text-right pr-0 pl-0'>`+ this["mob"] + `</span>
+                                                                    </div>
+                                                                    <div class='ladd'><p>`+ addres + `</p></div>
+                                                                </div>`;
+
+
+
+                    str += `</li>`;
+
+
+                    $(".addres_li").append(str);
+
+                });
+
+
+            }
+
+
+        },
+        error: function (err) {
+
+        }
+
+
+    });
+
+
+}
+
+
+
+function load_product_detail(productid = "", now_href = "", flag_sample_product = 0, flag_else_product = 0) {
+
+    ajaxIsWorking = true;
+    load_productf = 0;
+    var source_src = urlbase + "load_product_detail";
+
+    if (now_href == "" && parent_href == "") now_href = window.top.location.href;
+    else if (parent_href != "") now_href = parent_href;
+    var storefrontId = "";
+
+    on_loading();
+    $.ajax({
+        type: "post",
+        url: source_src,
+        dataType: "json",
+
+        data: { now_url: now_href, lname: lname, shop: shop, productid: productid },
+        success: function (_result) {
+
+            if (_result.status == "success") {
+
+                if (_result.ret.str.access == -1) {
+                    $(".dproduct").hide();
+                    $(".product-sticky-content").hide();
+                    $(".home").removeClass("addtocart-fixed").addClass("limit_product");
+                    $(".dproduct2").html(_result.ret.str.access_html).show();
+                    Wolmart.call(Wolmart.init);
+                    return false;
+                }
+                if (_result.ret == "") {
+                    labelok("no", "محصولی یافت نشد");
+                    if (page == 1) labelok("no", "محصولی یافت نشد");
+                    else labelok("no", "پایان محصولات");
+                    off_loading();
+                    return false;
+                }
+
+                var ths = _result.ret.str[0];
+
+                if (storefrontId == "")
+                    storefrontId = 1;
+
+                //if (_result.ret.title != "")
+                //$(".breadcrumb").append("<li><a>" + _result.ret.title + "</a></li>");
+
+                load_product_review(productid, ths.productGroupId, storefrontId);
+                load_product_color(productid, ths.productGroupId, storefrontId);
+
+
+                if (ths.promotions != '')
+                    $(".box_left_new").append(ths.promotions);
+
+
+                if (ths.merchant.str != '')
+                    $(".box_left_new").append(ths.merchant.str);
+
+
+
+                if (ths.gender.name != '')
+                    $(".product_gender").html("در دسته بندی  <span>" + ths.gender.name + "</span>");
+                else
+                    $(".product_gender").html("");
+
+                $(".product_title").html(ths.Name_show);
+
+                if (ths.merchant.name != '')
+                    $(".merchant").html(" فروشنده : <span>" + ths.merchant.name + "</span>");
+                else
+                    $(".merchant").html("");
+
+                $(".new_price").html(ths.html_price);
+
+
+                if (ths.size_cnt > 1) {
+                    $(".product-size-swatch").
+                        html(`
+                                            <div class='box_size   w-100'>
+                                            `+ ths.variants_str + `
+                                            </div>`);
+                } else {
+
+                    var size_now = "تک سایز";
+                    if (ths.variants1[0] == "")
+                        size_now = ths.variants1[0];
+                    $(".product-size-swatch").html(`<input type='hidden' name='size' value='` + size_now + `' />`);
+                }
+
+                if (ths.favoriteCount)
+                    $(".cnt_favirus").html("<div class='heart'><i class='w-icon-heart  w-icon-heart1'></i><span>" + ths.favoriteCount + "<small>پسند شده</small></span></div>");
+
+                if (ths.des != "") {
+                    $(".descrip_txt").html(ths.des);
+                    $(".descrip_txt").after(`
+                                            <div class='all-features mb-16'>
+                                            <div class='opacity-layout'></div>
+                                            <a class='button-all-features smooth_scroll' data-href='#info_product' >ویژگی های بیشتر</a>
+                                            </div>`);
+                }
+
+                if (ths.delivery.day)
+                    $(".delivery_day").html(
+                        "<span>" +
+
+                        "تحویل تخمینی در ترکیه: </span><span> " + ths.delivery.day + " روز"
+                        +
+                        "</span>");
+
+                if (ths.productCode)
+                    $(".sku1").html(ths.productCode);
+
+                if (ths.attributes)
+                    $(".box_table_attr1").html(ths.attributes);//rep1
+
+
+                if (ths.des)
+                    $(".rep2").html(ths.des);
+                off_loading();
+
+                var lazy_product = "";
+                //_result.ret.str
+
+
+
+
+                //init photo
+
+                var larg_photo = "", small_photo = "", idx_photo = "";;
+                $.each(ths.photo, function () {
+
+                    if (idx_photo == "")
+                        idx_photo = this["photo2"];
+                    larg_photo += `
+                                                
+                                                <div class="swiper-slide">
+                                                
+                                            <figure class="product-image">
+                                            
+                                            <img src="`+ this["photo2"] + `"
+                                            data-zoom-image="`+ this["photo2"] + `"
+                                             alt="`+ ths.name + `" 
+                                            width="800" height="900">
+                                            
+                                            </figure>
+                                                    
+                                                    
+                                                </div>
+                                                `;
+
+                    small_photo += `
+                                            
+                                            <div class="product-thumb swiper-slide">
+                                        <img src="`+ this["photo1"] + `"
+                                            alt="`+ ths.name + `"
+                                            
+                                            width="800" height="900">
+                                                </div>
+                                                `;
+
+
+                });
+
+                //init photo
+
+                $(".larg_photo").html(larg_photo);
+                $(".small_photo").html(small_photo);
+
+
+                $(".right_des").html("<h2 class='title_des' >" + ths.Name_show + "</h2>");
+                if (ths.des)
+                    $(".right_des").append(ths.des);
+
+                if (idx_photo)
+                    $(".left_photo").html(`
+                                            <div class='left_photo2'>
+                                                <img src='`+ idx_photo + `' altr='` + ths.name + `' />
+                                            </div>
+                                            `);
+
+
+                if (ths.star) {
+                    $(".star_deail").html(ths.star);
+                    $(".box_dtar_comment").html(ths.star);
+                } else {
+                    $(".box_dtar_comment").html("");
+                }
+                //stickyProduct('.product-sticky-content');
+
+
+
+                //Wolmart.slider('.swiper-container')
+                // Wolmart.productSingle('.product-single'); 
+                //Wolmart.call(Wolmart.init);
+
+            }
+
+
+            //if(flag_sample_product==1) load_product_sample(productid);
+            //if(flag_else_product==1) load_product_else(productid);
+
+            load_product_sample(productid, flag_sample_product, flag_else_product);
+            setTimeout(function () {
+                //Wolmart.call(Wolmart.init); 
+            }, 2000);
+            // Wolmart.slider('.swiper-container'); 
+            ajaxIsWorking = false;
+        },
+        error: function (err) {
+            off_loading();
+            //labelok("no",err.responseText);
+            ajaxIsWorking = false;
+        }
+
+
+    });
+
+
+}
+
+
+
+function load_product(page = 1, now_href = "", reload_load = 1) {
+
+    ajaxIsWorking = true;
+
+    var source_src = urlbase + "load_product";
+
+    if (now_href == "" && parent_href == "") now_href = window.top.location.href;
+    else if (parent_href != "") now_href = parent_href;
+
+    on_loading();
+    $.ajax({
+        type: "post",
+        url: source_src,
+        dataType: "json",
+
+        data: { page: page, now_url: now_href, lname: lname, shop: shop, kindshow: kindshow },
+        success: function (_result) {
+            if (_result.status == "success") {
+
+                if (_result.ret == "") {
+                    if (page == 1) labelok("no", "محصولی یافت نشد");
+                    else labelok("no", "پایان محصولات");
+                    off_loading();
+                    return false;
+                }
+
+                if (page == 1) {
+
+                    if (_result.ret.title != "" && reload_load == 1)
+                        $(".breadcrumb").append("<li><a>" + _result.ret.title + "</a></li>");
+                    $(".number_product").html('<span> ' + _result.ret.title + '<d> ( ' + _result.ret.cnt + " یافت شد " + ") </d> </span>");
+
+                    $(".order_list_by").html(_result.ret.sort);
+                }
+
+                off_loading();
+                var lazy_product = "";
+
+                $.each(_result.ret.str, function () {
+
+                    var new_p = 0;
+                    var nhtml = `<div class="product-wrap product_hidden" >
+                                    <div class="product text-center" >
+                                    
+                                    <a href="`+ this["href"] + `" class="top_lnk"></a>
+                                    
+                                        <figure class="product-media">
+                                            <a href="`+ this["href"] + `">
+                                                <img class='lazy' data-src="`+ lazy_product + `" src="` + this["photo"][0]["photo1"] + `" alt="` + this["alt"] + `" width="244" height="366">`;
+
+                    if (this["photo"][1]) {
+
+                        if (kindshow == 25) kidx = "photo2";
+                        else kidx = "photo1";
+
+                        nhtml += `<img  class='lazy' data-src="` + lazy_product + `" src="` + this["photo"][1][kidx] + `" alt="` + this["alt"] + `" width="244" height="366">`;
+                    }
+
+
+                    nhtml += `</a>
+                                            <div class="product-action-vertical none">
+                                                
+                                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart" title="افزودن به علاقه مندی ها"></a>
+                                               
+                                            </div>`;
+
+                    off = "20";
+                    if (this["price"]["has_off"] == 1 && this["price"]["off_ampunt"] > 0)
+                        nhtml += `<div class="product-label-group2"><label class="product-label prlo">%` + this["price"]["off_ampunt"] + ` </label></div> `;
+
+                    if (new_p != "")
+                        nhtml += `<div class="product-label-group1 prl"><label class="product-label prln">جدید</label></div>`;
+
+                    if (this["All_stemp"] != "")
+                        nhtml += `<div class="stamps_new">` + this["All_stemp"] + `</div>`;
+
+
+                    nhtml += `</figure>
+                                        <div class="product-details">
+                                        
+                                        <h3 class="product-name">
+                                               <span class='product-cat'>`+ this["brand"] + `</span>
+                                               
+                                               <span class='product_name'>`+ this["name"] + `</span>
+                                            </h3>`;
+
+                    if (this["star"] != '')
+                        nhtml += `<div class="star_new">` + this["star"] + `</div>`;
+
+
+                    if (this["promotions"] != '')
+                        nhtml += `<div class="promotions1">` + this["promotions"] + `</div>`;
+
+                    nhtml += `<div class="product-pa-wrapper">`;
+
+
+                            //this["price_show"] + str_vhd()
+                    nhtml += `<div class="product-price">
+                                                    `+ this["html_price"]  + `
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+
+                    $(".load_date").append(nhtml);
+                });
+
+
+                //$(".load_date .single_result").addClass("animate__jackInTheBox");
+
+            }
+
+            ajaxIsWorking = false;
+        },
+        error: function (err) {
+            off_loading();
+            //labelok("no",err.responseText);
+            ajaxIsWorking = false;
+        }
+
+
+    });
+
+
+}
+function order_by(elem) {
+    var select = $(elem).val();
+
+
+    var href = location.href;
+
+
+    //location.search = "";
+    href = href.replace(/&sst=.*&/g, '&') + "&sst=" + select;
+
+    //    href = location.protocol + "://" + location.hostname + location.pathname + lsrch + location.hash;
+
+
+
+    //var title = $(elem).text();
+    $(".load_date").html("");
+    $(".number_product").html('<div class="number_product1 shimmerBG content-line m-t-24 mline0 mline00"></div>');
+
+    $('html, body').animate({
+        scrollTop: $("#load_date").offset().top - 150
+    }, 500);
+
+    //window.history.pushState("", "", href);
+    //window.history.replaceState("", "", href);
+    parent_href = href;
+    now_page = 2;
+    now_page_cat = 3;
+    load_filter(1, href, 0);
+    load_product(1, href, 0);
+    return false;
+
+}
+function reload_product(elem) {
+    event.preventDefault();
+    var href = $(elem).attr("href");
+
+    //var title = $(elem).text();
+    $(".load_date").html("");
+    $(".number_product").html('<div class="number_product1 shimmerBG content-line m-t-24 mline0 mline00"></div>');
+
+    $('html, body').animate({
+        scrollTop: $("#load_date").offset().top - 150
+    }, 500);
+
+    //window.history.pushState("", "", href);
+    window.history.replaceState("", "", href);
+    parent_href = href;
+    now_page = 2;
+    now_page_cat = 3;
+    load_filter(1, href, 0);
+    load_product(1, href, 0);
+    return false;
+}
+
+
+function analiz_search(str) {
+
+
+    if (str.indexOf("trendyol.com") == -1) return '';
+
+
+
+    var res = str.search(/-p-[A-Z,a-z,1-9]/i);
+
+    if (res != -1) {
+        var start = str.indexOf("-p-");
+        start = start + 3;
+
+        var nstr = str.slice(start);
+
+        var nstr_new = nstr.replace("?", "&");
+
+        return nstr_new;
+        var end = nstr.indexOf("?");
+        if (end != '' && end != 0)
+            end = end + start;
+
+        var nstr2;
+        if (end > start)
+            nstr2 = str.slice(start, end);
+        else
+            nstr2 = str.slice(start);
+
+
+        return nstr2;
+    }
+    return "";
+}
+
+function run_search(elem) {
+    event.preventDefault();
+    var search = $(elem).val();
+
+    var barcode = analiz_search(search);
+    //window.top.labelok("no",barcode);
+
+    if (search != "") {
+        if (barcode != "")
+            location.href = urlbase + "product/trendyol/home/?productid=" + barcode;
+        else {
+            if (search.length > 2)
+                location.href = urlbase + "collection/trendyol/home/3/?ButikId=" + search
+            return false;
+        }
+    } else {
+        // window.top.labelok("no","برای شروع جستجو حداقل یک کلمه  وارد کنید");
+        return "";
+    }
+
+}
+$(document).on("click", ".remove_itm i", function (e) {
+
+
+    var parent = $(this).parents(".edit_photo");
+
+    $(parent).find(".noinput").val("");
+    $(parent).find(".img_top2 img").attr("src", "/images/default-product-image.png");
+    $(parent).find(".img_top2 .remove_itm").hide();
+
+
+});
+
+
+$('#header_search').on("keypress", function (event) {
+
+    if (event.key === "Enter") {
+
+        run_search(this);
+    }
+
+
+});
+$('.top_dsc').on("click", function (event) {
+
+    var href = $(this).attr("data-href");
+    if ($(href).length)
+        var target = $(href);
+    else return "";
+
+    if (target.length) {
+        $('html,body').animate({
+            scrollTop: target.offset().top
+        }, 800);
+        return false;
+    }
+
+
+});
+$('.btn_search_search').on("click", function (event) {
+
+
+
+    run_search($(".header_search"));
+
+
+
+});
+
+$('.order_list_by').on("change", function (event) {
+
+
+
+    order_by(this);
+
+
+
+});
+
+$(function () {
+
+    $(document).on("change", ".collection_select1", function (e) {
+
+        var select = $(this).val();
+        if (select == "") return false;
+
+        shop = 'trendyol';
+
+        open_loading();
+        $(".load_big_date").html("");
+        $(".load_date_cat").html("");
+        var now_href = '';
+        lname = select;
+        no_home = 1;
+
+        load_collection(1, urlbase + shop + "/" + lname);
+
+    });
+
+
+    $(document).on("change", ".collection_select", function (e) {
+
+        var select = $(this).val();
+        if (select == "") return false;
+
+        shop = 'trendyol';
+
+        open_loading();
+        $(".load_big_date").html("");
+        $(".load_date_cat").html("");
+        var now_href = '';
+        lname = select;
+        no_home = 1;
+
+        load_collection(1, urlbase + shop + "/" + lname);
+
+    });
+
+
+    if ($(".export_db1").length) {
+        //new_export1("export");
+    }
+
+
+    $(document).on("click", ".smooth_scroll", function (e) {
+        e.preventDefault();
+        var href = $(this).attr("data-href");
+
+        if (href == "") return '';
+        if ($(href).length)
+            var target = $(href);
+        else return "";
+
+        if (target.length) {
+            $('html,body').animate({
+                scrollTop: target.offset().top
+            }, 800);
+            return false;
+        }
+
+
+
+        return false;
+
+    });
+
+    $(".recovery_password").click(function (e) {
+        e.preventDefault();
+        $(".form_login1").slideUp();
+        $(".form_recovery").show();
+    });
+
+    $(".re_show").click(function () {
+        //load_date row cols-md-4 cols-sm-2 cols-2
+        var show = $(this).attr("data-shaow");
+        if (show == 3) $(".load_date").removeClass("cols-md-4").addClass("cols-md-3");
+        else if (show == 4) $(".load_date").removeClass("cols-md-3").addClass("cols-md-4");
+    });
+
+    var content_all = $(".content_all").height();
+    var down = 0;//$(".footer").height();
+
+    var diff = $(document).height() - $(window).height() - down;
+    diff = diff - (diff / 4);
+    var need_scroll = diff;
+
+
+
+
+    $(window).scroll(function () {
+
+        var position = Math.floor($(window).scrollTop());
+        var appand2 = ($(".appand2").offset().top) * (1 / 2);//-(($(window).height()));
+
+
+        //لود محصول
+        if ($(".load_date_shop").length) {
+            if (
+                !ajaxIsWorking &&
+                position >= need_scroll
+                &&
+                position >= appand2
+            ) {
+                load_product(now_page++);
+
+            }
+        }
+
+
+        //لود بوتیک
+        if ($(".load_date_cat").length) {
+
+            if (
+                !ajaxIsWorking &&
+                position >= need_scroll
+                &&
+                position >= appand2
+            ) {
+                //if(lname!="")
+                load_collection(now_page_cat++);
+
+            }
+        }
+
+
+
+
+
+    });
+
+});
+
+$(document).on("click", ".btn_continue span", function (e) {
+    load_collection(now_page_cat++);
+});
+
+
+function on_loading() {
+    $(".loading_append").fadeIn();
+}
+function off_loading() {
+    $(".loading_append").fadeOut();
+}
+
+
+function open_loading() {
+    $(".loading_new").fadeIn();
+}
+function cls_loading() {
+
+    $(".loading_new").fadeOut();
+}
+
+function rest_signin() {
+    $(".form_recovery2").hide();
+    $(".form_recovery").hide();
+    $(".form_login").show();
+
+    $(".nav_item2").removeClass("active");
+    $(".nav_item1").addClass("active");
+
+    $(".tab_pane2").removeClass("active").removeClass("in");
+    $(".tab_pane1").addClass("active").addClass("in");
+
+    $(".form_reg").show();
+    $(".form_reg2").hide();
+
+
+
+}
+function restore_login(phone = "") {
+    $(".form_recovery2").hide();
+    $(".form_recovery").hide();
+    $(".form_login").show();
+
+    $(".nav_item2").removeClass("active");
+    $(".nav_item1").addClass("active");
+
+    $(".tab_pane2").removeClass("active").removeClass("in");
+    $(".tab_pane1").addClass("active").addClass("in");
+}
+
+function form_code_sms_verify(phone) {
+    $(".form_recovery").slideUp();
+    $(".form_recovery2").show();
+
+
+    $(".form_recovery2 .flr input[name='phone']").val(phone);
+}
+
+
+function form_code_sms(phone) {
+    $(".form_reg").slideUp();
+    $(".form_reg2").show();
+
+    $(".nav_item1").removeClass("active");
+    $(".nav_item2").addClass("active");
+
+    $(".tab_pane1").removeClass("active").removeClass("in");
+    $(".tab_pane2").addClass("active").addClass("in");
+
+    $(".form_reg2 .flr input[name='phone']").val(phone);
+}
+function LoginPopUp_url(uv) {
+
+    $("body").css("overflow", "hidden");
+    $(".form_login").show();
+    $(".form_code_sms").hide();
+    $(".form_login form").attr("redirect", uv);
+    $(".form_code_sms .FormForm").attr("redirect", uv);
+    $(".PopUpPage").fadeIn();
+    $(".PopCenter").fadeIn();
+
+
+}
+
+
+function PopUpClose() {
+    $(".PopCenter").fadeOut();
+    $(".PopUpPage").hide();
+    $("body").css("overflow", "visible");
+}
+
+
+
+
+
+
+function load_ajax(elem, type = "post", dataType = "json", href = "") {
+
+
+    if (href == "") var href = $(elem).attr("data-href");
+
+    open_loading();
+
+
+
+    $.ajax({
+        type: type,
+        url: href,
+        dataType: dataType,
+
+        data: {},
+        success: function (_result) {
+
+            cls_loading();
+            if (_result.status == "success") oks = "ok"; else oks = "no";
+
+            if (_result.message != "")
+                labelok(oks, _result.message);
+
+
+        },
+        error: function (err) {
+
+            cls_loading();
+            labelok("no", err.responseText);
+
+        }
+
+
+    });
+}
+
+
+
+
+function load_href(elem, txt_header = "", type = "post", dataType = "json") {
+
+    var href = $(elem).attr("data-href");
+
+    open_model(1);
+    open_loading();
+    $(".body_Model_new").html("");
+
+
+    if (txt_header == "") $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: type,
+        url: href,
+        dataType: dataType,
+
+        data: {},
+        success: function (_result) {
+
+            cls_loading();
+            if (_result.status == "success") {
+
+                $(".body_Model_new").html(_result.ret);
+
+                $(".Model_new").addClass("Model_new_backdrop_new");
+                //alert("ppp"+_result.load_js);
+                if (_result.load_js != "")
+                    $(".body_Model_new").append(_result.load_js);
+
+            }
+            else {
+                labelok("no", _result.message);
+            }
+
+        },
+        error: function (err) {
+
+            cls_loading();
+            labelok("no", err.responseText);
+
+        }
+
+
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function remove_file_up(elem) {
+    $(elem).parent(".pad_file").find(".preview_uploadi").attr("src", "");
+    $(elem).parents(".preview_upload").hide();
+    $(elem).parent(".pad_file").find(".is_remove_file").val("1");
+}
+function loadFile(event, elem) {
+
+    var output = $(elem).parents(".cls_ufile").find(".preview_uploadi");
+    $(elem).parents(".cls_ufile").find(".preview_upload").show();
+    $(elem).parents(".file_css").find(".is_remove_file").val("0");
+
+    output.src = URL.createObjectURL(event.target.files[0]);
+
+    $(output).attr("src", output.src);
+
+    output.onload = function () {
+        URL.revokeObjectURL(output.src);
+    }
+}
+function reload_address(str, id) {
+
+    $(".select_address").html(str);
+    $(".btnrdb_address").attr("data-id", id);
+    $(".add_det_order input[name='id']").val(id);
+    $(".select_address").val(id);
+}
+
+function addComma(str, source = "") {
+    var objRegex = new RegExp('(-?[0-9]+)([0-9]{3})');
+    while (objRegex.test(str)) {
+        str = str.replace(objRegex, '$1,$2');
+    }
+
+    return str;
+}
+
+function reload_number(elem) {
+    var val = $(elem).val();
+    //val = val.replace(",", "");
+    val = val.replace(/\,/g, "");
+    //val=Number(val);
+
+
+    $(elem).parent().children(".nval").remove();
+
+    if (val != "" && val != 0 && val > 0) {
+        var nval = Num2persian(val);
+
+        nval = "<div class='nval'>معادل <span>" + nval + "</span><div>";
+        $(elem).after(nval);
+        $(elem).val(separate1(val, $(elem).val()));
+    }
+}
+
+function reload_separate1(elem) {
+
+
+    var val = $(elem).val();
+    //val = val.replace(",", "");
+    val = val.replace(/\,/g, "");
+    //val=Number(val);
+
+
+
+    if (val != "" && val != 0 && val > 0) {
+
+        $(elem).val(separate1(val, $(elem).val()));
+
+        $(elem).parent().find(".else_number").val(val);
+    } else $(elem).parent().find(".else_number").val("");
+
+}
+function reload_creadit(now_creadit) {
+
+    $(".deposit input").val(now_creadit);
+}
+
+$(document).on("change", "select[name='size']", function () {
+    var disable = $(this).find(":selected").attr("disable");
+
+    if (disable == "disable") {
+        $(this).val("");
+        $(".quantity").val("");
+        labelok("no", "متاسفانه این سایز موجود نیست");
+    } else {
+
+        if ($(".quantity").val() == "") $(".quantity").val(1);
+
+    }
+
+});
+function load_product_detailt1(productid = "", now_href = "", flag_sample_product = 0, flag_else_product = 0,item_product="") {
+
+    ajaxIsWorking = true;
+    load_productf = 0;
+    var source_src = urlbase + "load_product_detail";
+
+    if (now_href == "" && parent_href == "") now_href = window.top.location.href;
+    else if (parent_href != "") now_href = parent_href;
+
+    on_loading();
+    $.ajax({
+        type: "post",
+        url: source_src,
+        dataType: "json",
+
+        data: { now_url: now_href, lname: lname, shop: shop, productid: productid ,item_product:item_product},
+        success: function (_result) {
+
+            if (_result.status == "success") {
+
+                if (_result.ret.str.access == -1) {
+                    $(".dproduct").hide();
+                    $(".product-sticky-content").hide();
+                    $(".home").removeClass("addtocart-fixed").addClass("limit_product");
+                    $(".dproduct2").html(_result.ret.str.access_html).show();
+                    Wolmart.call(Wolmart.init);
+                    return false;
+                }
+                if (_result.ret == "") {
+                    labelok("no", "محصولی یافت نشد");
+                    if (page == 1) labelok("no", "محصولی یافت نشد");
+                    else labelok("no", "پایان محصولات");
+                    off_loading();
+                    return false;
+                }
+
+                var ths = _result.ret.str[0];
+
+                $(".new_price .new-price").html(ths.price_show+str_vhd());
+                
+
+            }
+
+
+            ajaxIsWorking = false;
+        },
+        error: function (err) {
+            off_loading();
+            //labelok("no",err.responseText);
+            ajaxIsWorking = false;
+        }
+
+
+    });
+
+
+}
+function refresh_size_price(elem) {
+
+    var $parent = $(elem).parent(".select_size");
+    var item = $($parent).attr("data-item");
+
+    $(".new_price .new-price").html(` <div class="shimmerBG mline10 mb-3 w12r"></div>`);
+    load_product_detailt1(productid,'',flag_sample_product,flag_else_product,item);
+    $("input[name='item_product']").val(item);
+    //if(new_price!=="")
+    //$(".new_price .new-price").html(separate(new_price)+str_vhd());
+
+
+}
+
+function refresh_size(elem) {
+
+    var now_select = $(elem).val();
+    $(".select_size_new .nsize").text(now_select);
+
+
+}
+
+$(function () {
+    $(document).on("change", ".size_trch", function (event) {
+
+
+        refresh_size_price(this);
+    });
+
+
+    $(document).on("change", ".size_tr", function (event) {
+
+
+        refresh_size(this);
+    });
+
+
+
+    function run_search(elem) {
+        event.preventDefault();
+        var search = $(elem).val();
+
+        var barcode = analiz_search(search);
+        //window.top.labelok("no",barcode);
+
+        if (search != "") {
+            if (barcode != "")
+                location.href = urlbase_site + "trendyol-product/?shop=trendyol&lname=home&productid=" + barcode;
+            else {
+                if (search.length > 2)
+                    location.href = urlbase_site + "trendyol-collection/?shop=trendyol&lname=home&kind=3&ButikId=" + search
+                return false;
+            }
+        } else {
+            // window.top.labelok("no","برای شروع جستجو حداقل یک کلمه  وارد کنید");
+            return "";
+        }
+
+    }
+
+
+    $('#header_search').on("keypress", function (event) {
+
+        if (event.key === "Enter") {
+
+            run_search(this);
+        }
+
+
+    });
+    $('.btn_search_search').on("click", function (event) {
+
+
+
+        run_search($(".header_search"));
+
+
+
+    });
+
+    $(document).on('keyup', '.search_in_wbt input', function (e) {
+
+        var list = $(this).parents(".parent_filter").find(".filter-items");
+        var txt = $(this).val().toLowerCase();
+
+        if (txt == "") {
+            list.find("li").removeClass("none");
+            return false;
+        }
+
+
+        var tsearch = "";
+        $.each(list.find("li"), function (index, value1) {
+            //li_filter
+            tsearch = $(this).text().toLowerCase();
+
+
+            if (tsearch.search(txt) == -1) $(this).addClass("none");
+            else $(this).removeClass("none");
+
+        });
+
+    });
+
+
+
+    if ($(".together_input").length) {
+        $(".together_input").click(function () {
+
+            together_input(this);
+        });
+
+    }
+    //if($(".jnumber").length){
+    $(document).on("keyup", ".jnumber", function (event) {
+        //$(".jnumber").keyup(function(event){
+
+        just_number(event, this, $(this).val());
+    });
+    //}
+
+    //if($(".jnumber_word_persian").length){
+    $(document).on("keyup", ".jnumber_word_persian", function (event) {
+
+        just_number_word_persian(event, this, $(this).val());
+    });
+    //}     
+    //if($(".jnumber_word").length){
+    $(document).on("keyup", ".jnumber_word", function (event) {
+        //$(".jnumber_word").keyup(function(event){
+
+        just_number_word(event, this, $(this).val());
+    });
+    ///}
+
+    //if($(".just_number_word_latin").length){
+    $(document).on("keyup", ".just_number_word_latin", function (event) {
+        //$(".just_number_word_latin").keyup(function(event){
+
+        just_number_word_latin(event, this, $(this).val());
+    });
+    //}
+
+
+    //if($(".just_word_persian").length){
+    $(document).on("keyup", ".just_word_persian", function (event) {
+        //$(".just_number_word_latin").keyup(function(event){
+
+        just_word_persian(event, this, $(this).val());
+    });
+    // }
+
+
+
+    if ($(".bfl").length) {
+        $(".bfl").click(function (e) {
+            e.preventDefault();
+            $(".flr input[type='text'],.flr input[type='password'],.flr input[type='tel']").val("");
+            restore_login();
+
+        });
+    }
+
+
+    if ($(".repeat_code_verify span").length) {
+        $(".repeat_code_verify span").click(function () {
+
+            var phone = $(this).parents(".actionverify").find("input[name='phone']").val();
+
+            load_ajax("", "post", "json", urlbase + 'users/reverify/' + phone);
+
+        });
+    }
+
+
+    if ($(".repeat_code_recovery span").length) {
+        $(".repeat_code_recovery span").click(function () {
+
+            var phone = $(this).parents(".actionverify").find("input[name='phone']").val();
+
+            load_ajax("", "post", "json", urlbase + 'users/rerecovery/' + phone);
+
+        });
+    }
+
+    if ($("input[type='number1']").length) {
+
+        $("input[type='number1']").each(function (index) {
+            reload_separate1(this);
+        });
+
+
+    }
+
+
+    $("input[type='number1']").on('keyup', function (e) {
+        reload_separate1(this);
+
+
+    });
+
+
+
+    $(".active_sub").parents(".open_submenu_ulli").addClass("open");
+
+    $(document).on("change", ".select_collection .select2", function () {
+
+        $.ajax({
+            type: "post",
+            url: "reload_category",
+            dataType: "text",
+
+            data: { id: this.value },
+            success: function (result) {
+
+                $(".select_category select").html(result);
+
+            },
+            error: function (err) {
+
+                alert(err.responseText);
+            }
+
+
+        });
+
+
+    });
+
+});
+
+
+
+
+///***  ***////
+
+
+
+
+function Luck_form(elem) {
+
+    var open = $(elem).attr("data-open");
+    var id = "#" + $(elem).attr("data-tr") + " ";
+
+    if (open == 0) {
+        $(id + ".Element_css  input").removeAttr("readonly");
+        $(id + ".Element_css  select").removeAttr("readonly");
+        $(id + ".Element_css .SumoSelect").removeClass("readonly");
+        $(id + ".Element_css  textarea").removeAttr("readonly");
+        //$(id+".Element_css .select2 ").removeClass("readonly");
+
+        $(id + ".Luck_form_bx").removeClass("bxs-lock");
+        $(id + ".Luck_form_bx").addClass("bxs-lock-open");
+        $(id + ".btn_snd").removeClass("none");
+
+        //$(id+".btn_send").attr("type","submit");
+
+        $(elem).addClass("On_form");
+        $(elem).attr("data-open", 1);
+
+
+
+    } else {
+        $(id + ".Element_css input").attr("readonly", "readonly");
+        $(id + ".Element_css  select").attr("readonly", "readonly");
+        $(id + ".Element_css .SumoSelect").addClass("readonly");
+        $(id + ".Element_css  textarea").attr("readonly", "readonly");
+
+        //$(id+".Element_css .select2 ").addClass("readonly");
+        $(".Luck_form_bx").addClass("bxs-lock");
+        $(".Luck_form_bx").removeClass("bxs-lock-open");
+        $(".btn_snd").addClass("none");
+
+        //$(id+".btn_send").attr("type","button");
+
+        $(elem).removeClass("On_form");
+        $(elem).attr("data-open", 0);
+
+        if ($(".box_sabt_link1").length) {
+            $(id + ".box_sabt_link1 .Element_css  input").removeAttr("readonly");
+            $(id + ".box_sabt_link1 .Element_css  select").removeAttr("readonly");
+            $(id + ".box_sabt_link1 .Element_css .SumoSelect").removeClass("readonly");
+            $(id + ".box_sabt_link1 .Element_css  textarea").removeAttr("readonly");
+
+
+        }
+
+    }
+}
+function remove_date(elem) {
+    $(elem).parent().parent().children("input").val("");
+}
+function reload_ajax(str, str2) {
+    var str1 = "<div class='spinner-border spinner-border-lg'></div>";
+    $('.form_form_search .Element_css  input').val("");
+    $('.form_form_search .Element_css  select').val("");
+    $('.form_form_search .Element_css  .select2-selection__rendered').text("انتخاب کنید");
+    $("#jsGrid").html(str1).html(str);
+    $(".sectionpageorder").html(str2);
+}
+
+function reload_color(elem) {
+
+    var new_val = $(elem).val();
+
+    $(elem).parent().children(".select_color").val(new_val);
+
+}
+function reload_kargo(elem) {
+
+
+
+
+    var id = $(elem).attr("data-id");
+    var basegr = $("#" + id + " input[name='basegr']").val();
+
+
+    var gr = $("#" + id + " input[name='gr']").val();
+
+    var pik = $("#" + id + " input[name='pik']").val();
+    var post = $("#" + id + " input[name='post']").val();
+
+    basegr = basegr.replace(',', '');
+    basegr = basegr.replace(/\,/g, "");
+
+    gr = gr.replace(',', '');
+    gr = gr.replace(/\,/g, "");
+
+    pik = pik.replace(',', '');
+    pik = pik.replace(/\,/g, "");
+
+    post = post.replace(',', '');
+    post = post.replace(/\,/g, "");
+
+
+    basegr = Number(basegr);
+    gr = Number(gr);
+
+    pik = Number(pik);
+    post = Number(post);
+
+    var result1 = Number(pik + post);
+    var result2 = 0;
+
+    if (basegr != "" && gr != "") {
+        basegr = basegr / 1000;
+        var amount = Number(basegr * gr);
+
+        result2 += amount;
+        //$("#"+id+" input[name='amount']").val(amount);
+    } else result2 = "";
+
+
+
+    var result = Math.ceil(result1 + result2);
+
+    if (result == 0) result = "";
+
+    $("#" + id + " input[name='amount']").val(result);
+
+
+    reload_separate1("#" + id + " input[name='basegr']");
+    reload_separate1("#" + id + " input[name='gr']");
+    reload_separate1("#" + id + " input[name='pik']");
+    reload_separate1("#" + id + " input[name='post']");
+    reload_separate1("#" + id + " input[name='amount']");
+}
+function reload_select(elem) {
+    var val_now = $(elem).find(":selected").val();
+    if (val_now == "") {
+        $(".input_adress1").val("");
+        $(".add_det_order input").not("input[name='username']").val("");
+        $(".input_adress textarea").val("");
+        $(".input_adress select").val("");
+        return "";
+    }
+    var id = $(elem).find(":selected").data("id");
+
+
+    var subject = $(elem).find(":selected").data("subject");
+    var name = $(elem).find(":selected").data("name");
+    var codetel = $(elem).find(":selected").data("codetel");
+    var tel = $(elem).find(":selected").data("tel");
+    var mob = $(elem).find(":selected").data("mob");
+    var posti = $(elem).find(":selected").data("posti");
+    var pro = $(elem).find(":selected").data("pro");
+    var city = $(elem).find(":selected").data("city");
+    var addres = $(elem).find(":selected").data("addres");
+    var x = $(elem).find(":selected").data("x");
+    var y = $(elem).find(":selected").data("y");
+    var add_map = $(elem).find(":selected").data("add_map");
+    var token = $(elem).find(":selected").data("token");
+
+    var share_addres = subject + " \r\n " + pro + "\n" + city + " \r\n " + addres + " \r\n کد پستی  " + posti;
+
+    $(".title_addres1").text(subject);
+    $(".add_det_order input[name='subject']").val(subject);
+    $(".add_det_order input[name='name']").val(name);
+    $(".add_det_order input[name='codetel']").val(codetel);
+    $(".add_det_order input[name='tel']").val(tel);
+    $(".add_det_order input[name='mob']").val(mob);
+    $(".add_det_order input[name='posti']").val(posti);
+    $(".add_det_order input[name='pro']").val(pro);
+    $(".add_det_order input[name='city']").val(city);
+    $(".add_det_order textarea[name='addres']").val(addres);
+    $(".add_det_order input[name='x']").val(x);
+    $(".add_det_order input[name='y']").val(y);
+    $(".add_det_order input[name='add_map']").val(add_map);
+    $(".add_det_order input[name='id']").val(id);
+    $("#share_addres").text(share_addres);
+    $(".btnrdb").attr("data-id", id);
+    $(".add_det_order input[name='token']").val(token);
+
+    //scrollup("#add_det_order");
+
+    reload_xy();
+    labelok("ok", "آدرس انتخابی لود شد");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+}
+
+
+
+function share_addres2(kind, elem) {
+
+    var share_addres = urlbase + "print/address/" + $(".add_det_order input[name='IdFaktor']").val();
+
+    sample_linka(share_addres, "_blank");
+}
+
+
+function share_addres(kind, elem) {
+
+    var share_addres = urlbase + "print/address/" + $(".add_det_order input[name='IdFaktor']").val();
+    //var share_addres = $("#share_addres").text();
+
+
+    switch (kind) {
+        case 1: {
+            link = "https://telegram.me/share/url?url=" + share_addres;
+            break;
+        }
+
+        case 2: {
+            link = "https://wa.me?text=" + share_addres;
+            break;
+        }
+    }
+    sample_linka(link, "_blank");
+}
+function remove_addres(elem) {
+
+    $(".input_adress1").val("");
+    $(".input_adress input").val("");
+    $(".input_adress textarea").val("");
+    $(".input_adress select").val("");
+
+}
+function rest_form(elem) {
+    $(elem).parents(".form_form_search").submit();
+
+}
+function remove_addres_db0(elem) {
+    remove_addres(elem);
+
+    var idx = $(elem).attr("data-id");
+
+    if (idx == "") {
+        labelok("no", "آدرسی انتخاب نشده است");
+        return false;
+    }
+
+    $.ajax({
+        type: "post",
+        url: "/admin/remove_addres",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            labelok(_result.status, _result.message);
+            window.top.redirecToUrl(window.top.location.href);
+
+            /*
+             $(".select_addres option[value='"+idx+"']").remove();
+            $('.select_addres').val('').trigger('chosen:updated');*/
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function remove_addres_db(idx) {
+    remove_addres();
+
+    //var idx = $(elem).attr("data-id");
+
+    if (idx == "") {
+        labelok("no", "آدرسی انتخاب نشده است");
+        return false;
+    }
+
+    $.ajax({
+        type: "post",
+        url: "/admin/remove_addres",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            if (_result.status == "error") labelok(_result.status, _result.message);
+            else {
+                labelok("error", _result.message);
+                reload_address(_result.ret, _result.ret2, _result.ret3);
+                $(".btn_red111").attr("data-id", "");
+                close_model("");
+            }
+            //window.top.redirecToUrl(window.top.location.href);
+
+            /*
+             $(".select_addres option[value='"+idx+"']").remove();
+            $('.select_addres').val('').trigger('chosen:updated');*/
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+function Active_tab(elem) {
+
+    var id = $(elem).attr("data-id");
+
+    $(".ative_title").removeClass("ative_title1");
+    $(elem).addClass("ative_title1");
+
+    $(".ative_tab").removeClass("ative_tab1");
+    $(".step_li" + id).addClass("ative_tab1");
+}
+function sample_linka(href, target = '_self') {
+    let a = document.createElement('a');
+    a.target = target;
+    a.href = href;
+    a.click();
+
+}
+function enter_linkjs(elem) {
+    var cls = $(elem).attr("data-cls");
+    var href = "";
+    if ($(cls).children("input").length)
+        href = $(cls).children("input").val();
+    else href = $(cls).find(".Element_css_inputelse_txt1").text();
+    sample_linka(href, "_blank");
+}
+function Copy_Text_To_Clipboard(elem) {
+    var text_input = $(elem).attr("data-cls");
+    var ob = $("<input>");
+    $("body").append(ob);
+    ob.val($(text_input).val()).select();
+    document.execCommand("copy");//Copy to Clipboard
+    ob.remove();
+    labelok("ok", "کپی شد");
+    return false;
+
+}
+function Close_share() {
+    $(".share_box").fadeOut();
+    $(".share_box2").removeClass("share_box2_active");
+}
+function share_box(elem) {
+    $(".share_box").fadeIn();
+    $(".share_box2").addClass("share_box2_active");
+}
+
+
+function remove_gallary(elm) {
+
+    var data_id = "." + $(elm).attr("data-id");
+
+    $(elm).removeClass("forceshow");
+    $(data_id + " input").val("");
+    $(data_id + " .show_prev_file").removeClass("forceshow");
+    $(data_id + " .insertfile").removeClass("suc1");
+    $(data_id + " .insertfile").html("");
+}
+
+$(function () {
+
+    $(".remove_date").click(function () {
+
+        $(this).parent().parent().children("input").val("");
+    });
+    $(".myremove").click(function () {
+        var cls = $(this).attr("data-class");
+        var numbertr = $(".numbertr").val();
+        if (numbertr <= 1) {
+            window.top.labelok("no", "شما نمیتوانید تمام موارد حذف کنید");
+            return false;
+        }
+        $(".numbertr").val(--numbertr);
+        $(cls).remove();
+    });
+
+
+    $(".removevanew").click(function () {
+        var id = $(this).attr("data-id");
+        $(this).fadeOut();
+        $("." + id + " input").val("");
+        $("." + id + " .insertfile").text("فایل  حذف شد");
+        $("." + id + " .insertfile").addClass("err1");
+        $("." + id + ".insertfile").removeClass("suc1");
+
+    });
+    $(".closeShowmanager").click(function () {
+
+        $(".Showmanager").attr("src", "");
+        $(".Showmanagerpop").fadeOut();
+        $(".controlShowmanager").removeClass("full_popup_new");
+
+    });
+
+});
+
+function reload_gallary360(elem) {
+
+    var id = $(elem).attr("data-id");
+
+
+
+    if (id == "") {
+        labelok("no", "قبل از ایجاد محصول نمی توانید تصاویر 360 ببیند");
+        return false;
+    }
+    var src = urlbase;
+    src = src + 'include/ipanorama/demo/g360.php?id=' + id;
+
+
+    z
+    $(".Showmanager").attr("src", src);
+    $(".Showmanagerpop").fadeIn();
+    $(".controlShowmanager").addClass("full_popup_new");
+    window.top.scrollup("#controlShowmanager");
+
+}
+
+function reload_gallary(elem) {
+
+
+    var id = $(elem).attr("data-id");
+    var kind = $(elem).attr("data-kind");
+    var type = $(elem).attr("data-type");
+
+    if (type == '') type = "Images";
+
+
+    CKFinder.modal({
+        chooseFiles: true,
+        type: type,
+        width: 950,
+        height: 600,
+        skin: "neko",
+        onInit: function (finder) {
+            finder.on('files:choose', function (evt) {
+                var file = evt.data.files.first();
+
+                if (kind == 1) Fun(file.getUrl(), id);
+                else Fun2(file.getUrl(), id);
+
+            });
+
+            finder.on('file:choose:resizedImage', function (evt) {
+
+                var file = evt.data.resizedUrl;
+
+                if (kind == 1) Fun(file, id);
+                else Fun2(file, id);
+
+            });
+        }
+    });
+}
+
+function reload_gallary_null(elem) {
+
+
+    var id = $(elem).attr("data-id");
+    var kind = $(elem).attr("data-kind");
+    var type = $(elem).attr("data-type");
+
+    if (type == '') type = "Images";
+
+
+    CKFinder.modal({
+        chooseFiles: true,
+        type: type,
+        width: 800,
+        height: 600,
+        onInit: function (finder) {
+            finder.on('files:choose', function (evt) {
+                var file = evt.data.files.first();
+
+                Fun2(file.getUrl(), id);
+                //var output = document.getElementById( elementId );
+                //output.value = file.getUrl();
+            });
+
+            finder.on('file:choose:resizedImage', function (evt) {
+                Fun2(file.getUrl(), id);
+
+                //var output = document.getElementById( elementId );
+                //output.value = evt.data.resizedUrl;
+            });
+        }
+    });
+}
+
+function reload_gallary2(elem) {
+
+    var id = $(elem).attr("data-id");
+    var kind = $(elem).attr("data-kind");
+    var type = $(elem).attr("data-type");
+
+    if (type == '') type = "Images";
+
+    var src = urlbase;
+    //src=src+'include/editor/ckfinder/ckfinder.html?type='+type+'&CKEditor=editor1&CKEditorFuncNum=Fun'+kind+'&langCode=fa&vanew='+id;
+    src = src + 'include/editor/ckfinder/ckfinder.html?type=' + type + '&CKEditor=editor1&CKEditorFuncNum=Fun' + kind + '&langCode=fa&vanew=' + id;
+
+
+    $(".Showmanager").attr("src", src);
+    $(".Showmanagerpop").fadeIn();
+    window.top.scrollup("#controlShowmanager");
+
+}
+function refreshform() {
+    $(".insertfile").text("");
+    $(".insertfile").removeClass("suc1");
+    $(".elementcover  input").val("");
+    $(".removevanew").fadeOut();
+}
+function removeaddp(element) {
+    $(element).parent().remove();
+}
+
+function addproduct2(data, vanew) {
+
+    var stnew = "<div class='addproduct' ><i onclick='removeaddp(this);' class='closei bx bx-trash'></i><div class='imgbox'><img src='" + data + "' /></div><input type='text' class='inputtxt' name='floor_name" + vanew + "[]' placeholder='نام ...' /><input type='number' min='0' class='nnumtxt' name='floor_rooms" + vanew + "[]' value='' placeholder='تعداد اتاق ...' /><input type='number' min='0' class='nnumtxt' name='floor_baths" + vanew + "[]' value='' placeholder='تعداد حمام ... ' /><input type='text' min='0' class='nnumtxt' name='floor_size" + vanew + "[]' value='' placeholder='سایز ...' /><textarea name='floor_content" + vanew + "[]'  placeholder='محتوا' ></textarea><input type='hidden' name='floor_" + vanew + "[]' value='" + data + "' /></div>";
+    $(".photo_" + vanew).append(stnew);
+    var h = $(".nbody").height();
+    window.top.refreshsize1(h);
+
+}
+
+function addproduct(data, vanew) {
+
+    var stnew = "<div class='addproduct' ><i onclick='removeaddp(this);' class='closei bx bx-trash'></i><div class='imgbox'><img src='" + data + "' /></div><input type='text' class='inputtxt' name='ntxt" + vanew + "[]' placeholder='نام ...' /><input type='number' min='0' class='nnumtxt' name='nnum" + vanew + "[]' value=''  /><input type='hidden' name='nsrc" + vanew + "[]' value='" + data + "' /></div>";
+    $(".photo_" + vanew).append(stnew);
+    var h = $(".nbody").height();
+    window.top.refreshsize1(h);
+
+}
+
+function getnameimg(src) {
+
+    var lsrc = src.split("/");
+
+    return lsrc[lsrc.length - 1];
+}
+function Fun(data, vanew) {
+
+    var namephoto = getnameimg(data);
+    namephoto = namephoto.substring(namephoto.length - 30);
+    namephoto = namephoto + " اضافه شد";
+
+    $(".up" + vanew + " input").val(data);
+    $("." + vanew).text("فایل قرار گرفت");
+
+    $(".up" + vanew + " ." + vanew).removeClass("err1");
+    $(".up" + vanew + " ." + vanew).addClass("suc1");
+    $(".up" + vanew + " .removevanew").fadeIn();
+    window.top.labelok("ok", namephoto);
+    //$(".Showmanager").attr("src","");
+    //$(".Showmanagerpop").fadeOut();
+
+    if (vanew == "insertfile6") addproduct2(data, vanew);
+    else addproduct(data, vanew);
+
+
+}
+
+function Fun2(data, vanew) {
+
+
+    if ($(".up" + vanew + " .img_top2 .remove_itm").length)
+        $(".up" + vanew + " .img_top2 .remove_itm").show();
+
+    if ($(".up" + vanew + " .img_top2 img").length)
+        $(".up" + vanew + " .img_top2 img").attr("src", data);
+    $(".up" + vanew + " input").val(data);
+    $(".up" + vanew + " ." + vanew).text("فایل قرار گرفت");
+
+    $(".up" + vanew + " ." + vanew).removeClass("err1");
+    $(".up" + vanew + " ." + vanew).addClass("suc1");
+    $(".up" + vanew + " .removevanew").fadeIn();
+    $(".up" + vanew + " .removevanew").addClass("forceshow");
+
+
+    $(".up" + vanew + " .show_prev_file").addClass("forceshow");
+    $(".up" + vanew + " .show_prev_file a").attr("href", data);
+
+    $(".Showmanager").attr("src", "");
+    $(".Showmanagerpop").fadeOut();
+
+}
+
+
+///** ****///
+
+
+
+
+
+
+
+
+function run_selct() {
+    $('.select2').select2({
+
+    });
+}
+function separate(Number) {
+    Number += '';
+    Number = Number.replace(',', '');
+    x = Number.split('.');
+    y = x[0];
+    z = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(y))
+        y = y.replace(rgx, '$1' + ',' + '$2');
+    return y + z;
+}
+
+function reload_editor(name_editor = "editor1") {
+
+    var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    tinymce.init({
+        selector: name_editor,
+        font_formats: 'iransansweb=iransansweb;iransansx2=iransansx2;Andale Mono=andale mono,times; Arial=arial,helvetica,sans-serif; Arial Black=arial black,avant garde; Book Antiqua=book antiqua,palatino; Comic Sans MS=comic sans ms,sans-serif; Courier New=courier new,courier; Georgia=georgia,palatino; Helvetica=helvetica; Impact=impact,chicago; Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats',
+        font_css: urlbase + 'assets/css/font.css',
+        language_url: urlbase + 'include/tinymce/langs/fa_IR.js',
+        language: 'fa_IR',
+        skin: 'oxide-dark',
+        fontsize_formats: "8px 10px 12px 13px 14px 18px 24px 36px",
+        content_css: urlbase + 'assets/css/editor.css',
+
+
+        plugins: 'n1ed print preview powerpaste casechange importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker imagetools textpattern noneditable help formatpainter permanentpen pageembed charmap tinycomments mentions quickbars linkchecker emoticons advtable export',
+
+
+        file_picker_types: 'file image media quickimage',
+        file_picker_callback: function (callback, value, meta) {
+
+            //$(".pop").attr("src","http://bomenti.com/include/ckfinder30/samples/popups.html").show();
+
+
+            CKFinder.modal({
+                chooseFiles: true,
+                width: 800,
+                height: 600,
+                onInit: function (finder) {
+                    finder.on('files:choose', function (evt) {
+                        var file = evt.data.files.first();
+
+                        callback(file.getUrl());
+                        //var output = document.getElementById( elementId );
+                        //output.value = file.getUrl();
+                    });
+
+                    finder.on('file:choose:resizedImage', function (evt) {
+
+                        callback(file.getUrl());
+                        //var output = document.getElementById( elementId );
+                        //output.value = evt.data.resizedUrl;
+                    });
+                }
+            });
+            /*browseFiles(value, meta.filetype, function (fileUrl) {
+                alert("LLL");
+              callback("fileUrl");
+            });*/
+        },
+        tinydrive_upload_path: '/token/path',
+        tinydrive_token_provider: '/token/jwt.php',
+        tinydrive_dropbox_app_key: 'YOUR_DROPBOX_APP_KEY',
+        tinydrive_google_drive_key: 'YOUR_GOOGLE_DRIVE_KEY',
+        tinydrive_google_drive_client_id: 'YOUR_GOOGLE_DRIVE_CLIENT_ID',
+
+
+
+
+
+        mobile: {
+            plugins: 'print preview powerpaste casechange importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker textpattern noneditable help formatpainter pageembed charmap mentions quickbars linkchecker emoticons advtable'
+        },
+        menu: {
+            tc: {
+                title: 'Comments',
+                items: 'addcomment showcomments deleteallconversations'
+            }
+        },
+        menubar: 'file edit view insert image format tools table tc help',
+        toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment',
+        autosave_ask_before_unload: true,
+        autosave_interval: '30s',
+        autosave_prefix: '{path}{query}-{id}-',
+        autosave_restore_when_empty: false,
+        autosave_retention: '2m',
+        image_advtab: true,
+
+        image_class_list: [
+            { title: 'None', value: '' },
+            { title: 'Some class', value: 'class-name' }
+        ],
+        importcss_append: true,
+        templates: [
+            { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
+            { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
+            { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br /><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
+        ],
+        template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
+        template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
+        height: 600,
+
+        image_caption: true,
+        quickbars_selection_toolbar: 'bold italic | quicklink h1 h2 h3  image quicktable | forecolor backcolor fontselect fontsizeselect formatselect',//
+        quickbars_insert_toolbar: false,
+        noneditable_noneditable_class: 'mceNonEditable',
+        toolbar_mode: 'sliding',
+        spellchecker_ignore_list: ['Ephox', 'Moxiecode'],
+        tinycomments_mode: 'embedded',
+        content_style: '.mymention{ color: gray; }',
+        contextmenu: 'link image imagetools table configurepermanentpen',
+        a11y_advanced_options: true,
+        skin: useDarkMode ? 'oxide-dark' : 'oxide',
+        //content_css: useDarkMode ? 'dark' : 'default',
+
+    });
+
+}
+function reload_editor_new(name = "editor1") {
+    CKEDITOR.replace(name, {
+        language: 'fa',
+        contentsLangDirection: 'rtl',
+        resize_enabled: true,
+        font_defaultLabel: '',
+        font_names: 'IRANSansWeb;bnazanin_bold;bnazanin;nazanin;BYekan;Calibri;monospace;Geneva;Tahoma/Tahoma;Verdana',
+
+
+        filebrowserBrowseUrl: urlbase + '/include/ckfinder/ckfinder.html',
+        filebrowserImageBrowseUrl: urlbase + '/include/ckfinder/ckfinder.html?type=Images',
+        filebrowserFlashBrowseUrl: urlbase + '/include/ckfinder/ckfinder.html?type=Flash',
+        filebrowserUploadUrl: urlbase + '/include/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        filebrowserImageUploadUrl: urlbase + '/include/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        filebrowserFlashUploadUrl: urlbase + '/include/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+    });
+}
+
+function labelok1(kind, str) {
+
+    if (kind == 'ok')
+        alertify.success(str);
+
+    if (kind == 'no')
+        alertify.error(str);
+
+
+}//End update
+
+function reload_close_refresh(val) {
+    $(".Model_new_backdrop").attr("data-reload", val);
+}
+function redirecToUrl(url) {
+    window.top.location.replace(url);
+}
+
+
+
+function close_model(elem) {
+
+    $(".modal-footer").addClass("none");
+    var reload = $(".Model_new_backdrop").attr("data-reload");
+
+    $(".Model_new_backdrop").attr("data-reload", 0);
+    $("body").css("overflow", "visible");
+
+    if (reload == 1) {
+        $(".loading_new").show();
+        window.top.redirecToUrl(window.top.location.href);
+    }
+    rest_model();
+    $(".Model_new_backdrop").removeClass("show");
+    $(".Model_new_cnt").removeClass("animate__fadeInDown");
+    $(".Model_new").removeClass("block_new");
+    $(".Model_new_backdrop").hide();
+}
+
+function rest_model() {
+
+
+
+    $(".Model_new_cnt").addClass("modal-lg").removeClass("dialog_alarm");
+
+    $(".Header_Model_new").removeClass("bg-danger");
+    $(".Header_Model_new").removeClass("danger_header");
+    $(".left_Model_new").removeClass("close");
+
+
+    $(".modal-footer").addClass("none");
+
+}
+
+function open_model(full = 0) {
+    if (full == 1) $(".Model_new_cnt").addClass("modal-full");
+    if (full == 2) {
+        $(".Model_new_cnt").removeClass("modal-lg").addClass("dialog_alarm modal-dialog");
+        $(".Header_Model_new").addClass("bg-danger danger_header");
+        $(".left_Model_new").addClass("close");
+
+
+        $(".bn_accept").attr("data-fun", "test");
+        $(".modal-footer").removeClass("none").show();
+    }
+    $(".Model_new").addClass("block_new");
+    $(".Model_new_cnt").addClass("animate__fadeIn");
+    $(".Model_new_backdrop").show().addClass("show");
+    base_ajax();
+}
+
+function base_ajax() {
+    $("body").css("overflow", "hidden");
+}
+function remove_form_hposti(id) {
+
+    $("#tr_kargo_" + id).slideUp().delay(1000).remove();
+}
+function remove_form_posti(id) {
+
+    $("#tr_barcode_" + id).slideUp().delay(1000).remove();
+}
+function remove_form_note(id) {
+
+    $("#tr_note_" + id).slideUp().delay(1000).remove();
+}
+function reload_form_note(id, val) {
+
+    $("#" + id + " input[name='id']").val(val);
+    $("#" + id + " .link_note").attr("data-id", val);
+}
+function reload_form_posti(id, val) {
+
+    $("#" + id + " input[name='id']").val(val);
+    $("#" + id + " .link_posti").attr("data-id", val);
+}
+
+function reload_Luck_form(elem) {
+    Luck_form(elem);
+}
+function reload_form_kargo(id, val, new1 = 0) {
+
+    if (new1 == 1) reload_Luck_form($("#" + id).find(".btn_luck_barberi"));
+
+
+    $("#" + id + " input[name='id']").val(val);
+    $("#" + id + " .link_posti ").attr("data-id", val);
+}
+
+function ajax_remove_export_db(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_export_db",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function ajax_export_db(idx = "") {
+
+    if (idx == "") txt_header = "ایجاد بک اپ";
+    else txt_header = "ویرایش ";
+
+    $(".loading_new").show();
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_export_db",
+        dataType: "text",
+
+        data: { id: idx },
+        success: function (result) {
+
+            //$(".loading_new").hide();
+            labelok("ok", "بک آپ با موفقیت گرفته شد");
+            window.top.redirecToUrl(window.top.location.href);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+            $(".loading_new").hide();
+        }
+
+
+    });
+}
+function ajax_remove_discount_used(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_discount_used",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function ajax_remove_discount(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_discount",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function ajax_remove_request(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_request",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function ajax_remove_tiket(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_tiket",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+function remove_atiket(elem) {
+
+
+    var id = $(elem).attr("data-id");
+    var kind = $(elem).attr("data-kind");
+    var table = $(elem).attr("data-table");
+
+    $.ajax({
+        type: "post",
+        url: "/admin/remove_atiket",
+        dataType: "json",
+
+        data: { id: id, ref: kind },
+        success: function (_result) {
+
+            if (_result.status == "success") st = "ok"; else st = "no";
+            {
+                $("#" + table).slideUp().remove();
+            }
+            labelok(st, _result.message);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+
+}
+
+
+
+function remove_note1(id, x, kind) {
+
+
+
+    var st = "";
+
+    if (id != "") {
+        $.ajax({
+            type: "post",
+            url: "/admin/remove_note",
+            dataType: "json",
+
+            data: { id: id, x: x },
+            success: function (_result) {
+                close_model("");
+                if (_result.status == "success") st = "ok"; else st = "no";
+                {
+                    remove_form_note(x);
+                }
+                labelok(st, _result.message);
+
+            },
+            error: function (err) {
+                close_model("");
+                alert(err.responseText);
+            }
+
+
+        });
+    } else { close_model(""); remove_form_note(x); }
+}
+function remove_note(elem) {
+
+
+    var id = $(elem).attr("data-id");
+    var x = $(elem).attr("data-x");
+    var kind = $(elem).attr("data-kind");
+    var st = "";
+
+    if (id != "") {
+        $.ajax({
+            type: "post",
+            url: "/admin/remove_note",
+            dataType: "json",
+
+            data: { id: id, x: x },
+            success: function (_result) {
+
+                if (_result.status == "success") st = "ok"; else st = "no";
+                {
+                    remove_form_note(x);
+                }
+                labelok(st, _result.message);
+
+            },
+            error: function (err) {
+
+                alert(err.responseText);
+            }
+
+
+        });
+    } else remove_form_note(x);
+}
+function remove_hposti1(id, x) {
+
+
+
+    var st = "";
+    if (id != "") {
+        $.ajax({
+            type: "post",
+            url: "/admin/remove_hposti",
+            dataType: "json",
+
+            data: { id: id, x: x },
+            success: function (_result) {
+                close_model("");
+                if (_result.status == "success") st = "ok"; else st = "no";
+                {
+                    remove_form_hposti(x);
+                }
+                labelok(st, _result.message);
+
+            },
+            error: function (err) {
+
+                alert(err.responseText);
+                close_model("");
+            }
+
+
+        });
+    } else { close_model(""); remove_form_hposti(x); }
+}
+function remove_hposti(elem) {
+
+
+    var id = $(elem).attr("data-id");
+    var x = $(elem).attr("data-x");
+    var st = "";
+    if (id != "") {
+        $.ajax({
+            type: "post",
+            url: "/admin/remove_hposti",
+            dataType: "json",
+
+            data: { id: id, x: x },
+            success: function (_result) {
+
+                if (_result.status == "success") st = "ok"; else st = "no";
+                {
+                    remove_form_hposti(x);
+                }
+                labelok(st, _result.message);
+
+            },
+            error: function (err) {
+
+                alert(err.responseText);
+            }
+
+
+        });
+    } else remove_form_hposti(x);
+}
+function remove_posti1(id, x) {
+
+
+
+    var st = "";
+    if (id != "") {
+        $.ajax({
+            type: "post",
+            url: "/admin/remove_posti",
+            dataType: "json",
+
+            data: { id: id, x: x },
+            success: function (_result) {
+
+                if (_result.status == "success") st = "ok"; else st = "no";
+                {
+                    remove_form_posti(x);
+                }
+                labelok(st, _result.message);
+                close_model("");
+
+            },
+            error: function (err) {
+
+                alert(err.responseText);
+                close_model("");
+            }
+
+
+        });
+    } else { close_model(""); remove_form_posti(x); }
+}
+function remove_posti(elem) {
+
+
+    var id = $(elem).attr("data-id");
+    var x = $(elem).attr("data-x");
+    var st = "";
+    if (id != "") {
+        $.ajax({
+            type: "post",
+            url: "/admin/remove_posti",
+            dataType: "json",
+
+            data: { id: id, x: x },
+            success: function (_result) {
+
+                if (_result.status == "success") st = "ok"; else st = "no";
+                {
+                    remove_form_posti(x);
+                }
+                labelok(st, _result.message);
+
+            },
+            error: function (err) {
+
+                alert(err.responseText);
+            }
+
+
+        });
+    } else remove_form_posti(x);
+}
+function send_email_posti(elem) {
+
+    var form = $(elem).parents("form");
+    $(form).find("input[name='sms']").val(1);
+    $(form).submit().find("input[name='sms']").val(0);
+    return false;
+    var id = $(elem).attr("data-id");
+    var st = "";
+
+    $.ajax({
+        type: "post",
+        url: "/admin/send_email_posti",
+        dataType: "json",
+
+        data: { id: id },
+        success: function (_result) {
+
+            if (_result.status == "success") st = "ok"; else st = "no";
+            labelok(st, _result.message);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+function close_tiket(elem) {
+
+
+    var id = $(elem).attr("data-id");
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/close_tiket",
+        dataType: "json",
+
+        data: { id: id },
+        success: function (_result) {
+
+            if (_result.status == "success") st = "ok"; else st = "no";
+            labelok(st, _result.message);
+
+            if (_result.status == "success") {
+                window.location.reload();
+                $(".close_tiket1 .clc").html(_result.chg);
+                $("input[name='status']").val(_result.val);
+                $(".status_tiket1").select2("val", _result.val);
+
+                //$('.status_tiket1 select').val(_result.val).trigger('change');
+                $(".status_tiket1").select2().val(null).trigger("change");
+
+                //$(".status_tiket1 input[name='status']").select2('refresh');
+            }
+
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+
+}
+function send_alarm_tiket(elem) {
+
+
+    var IdFaktor = $(elem).attr("data-id");
+
+    /*
+                 $.ajax({
+                            type: "post",
+                            url: "/admin/send_alarm_all",
+                            dataType: "json",
+    
+                            data: {kind:kind,IdFaktor:IdFaktor},
+                            success: function (_result) {
+                               
+                               if(_result.status=="success") st="ok"; else st="no";
+                               labelok(st,_result.message); 
+                       
+                            },
+                            error: function (err) {
+    
+                               alert(err.responseText);
+                            }
+    
+    
+                        });
+                    */
+}
+function send_alarm_users(elem) {
+
+
+    var IdFaktor = $(elem).attr("data-id");
+
+    /*
+                 $.ajax({
+                            type: "post",
+                            url: "/admin/send_alarm_all",
+                            dataType: "json",
+    
+                            data: {kind:kind,IdFaktor:IdFaktor},
+                            success: function (_result) {
+                               
+                               if(_result.status=="success") st="ok"; else st="no";
+                               labelok(st,_result.message); 
+                       
+                            },
+                            error: function (err) {
+    
+                               alert(err.responseText);
+                            }
+    
+    
+                        });
+                    */
+}
+
+function send_alarm_all(elem) {
+
+
+    var IdFaktor = $(elem).attr("data-idfaktor");
+    var kind = $(elem).attr("data-kind");
+    var st = "";
+
+    $.ajax({
+        type: "post",
+        url: "/admin/send_alarm_all",
+        dataType: "json",
+
+        data: { kind: kind, IdFaktor: IdFaktor },
+        success: function (_result) {
+
+            if (_result.status == "success") st = "ok"; else st = "no";
+            labelok(st, _result.message);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function send_email_kargo(elem) {
+
+    var form = $(elem).parents("form");
+    $(form).find("input[name='sms']").val(1);
+    $(form).submit().find("input[name='sms']").val(0);
+    return false;
+    var id = $(elem).attr("data-id");
+    var st = "";
+
+    $.ajax({
+        type: "post",
+        url: "/admin/send_email_kargo",
+        dataType: "json",
+
+        data: { id: id },
+        success: function (_result) {
+
+            if (_result.status == "success") st = "ok"; else st = "no";
+            labelok(st, _result.message);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function add_note_wallet(elem) {
+
+
+    var IdFaktor = $(elem).attr("data-IdFaktor");
+    var number = $(elem).attr("data-num");
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/add_note",
+        dataType: "json",
+
+        data: { IdFaktor: IdFaktor, number: number, kind: "wallet" },
+        success: function (_result) {
+            $(".tr_note_append").append(_result.message);
+            $(elem).attr("data-num", (Number(number) + 1));
+            labelok("ok", "افزوده شد");
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function add_note(elem) {
+
+
+    var IdFaktor = $(elem).attr("data-IdFaktor");
+    var number = $(elem).attr("data-num");
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/add_note",
+        dataType: "json",
+
+        data: { IdFaktor: IdFaktor, number: number, kind: "order" },
+        dataType: "json",
+
+        data: { IdFaktor: IdFaktor, number: number, kind: "order" },
+        success: function (_result) {
+            $(".tr_note_append").append(_result.message);
+            $(elem).attr("data-num", (Number(number) + 1));
+            labelok("ok", "افزوده شد");
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function add_posti(elem) {
+
+
+    var IdFaktor = $(elem).attr("data-IdFaktor");
+    var number = $(elem).attr("data-num");
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/add_posti",
+        dataType: "json",
+
+        data: { IdFaktor: IdFaktor, number: number },
+        success: function (_result) {
+            $(".tr_posti_append").before(_result.message);
+            $(elem).attr("data-num", (Number(number) + 1));
+            labelok("ok", "افزوده شد");
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function add_kargo(elem) {
+
+
+    var IdFaktor = $(elem).attr("data-IdFaktor");
+    var number = $(elem).attr("data-num");
+    var next = Number(number) + 1;
+
+    $.ajax({
+        type: "post",
+        url: "/admin/add_kargo",
+        dataType: "json",
+
+        data: { IdFaktor: IdFaktor, number: number },
+        success: function (_result) {
+            $(".tr_kargo_append").before(_result.message);
+
+            Luck_form($("#frm_kargo_" + IdFaktor + "_" + next).find(".btn_luck_barberi"));
+            $(elem).attr("data-num", (Number(number) + 1));
+
+            $("input[type='number1']").on('keyup', function (e) {
+                reload_separate1(this);
+
+
+            });
+
+
+
+            labelok("ok", "افزوده شد");
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+function ajax_remove_slider(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_slider",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_remove_field_value(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_field_value",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+
+
+function ajax_remove_message_admin(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_message_admin",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_remove_menu(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_menu",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+function ajax_remove_creatmenu(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_creatmenu",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+
+function ajax_remove_content_cms(idx) {
+
+    $(".loading_new").show();
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_content_cms",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+            $(".loading_new").hide();
+
+
+            if (_result.status == "success") {
+                $(".cltb" + idx).addClass('none').remove();
+                labelok("ok", _result.message);
+            } else labelok("no", _result.message);
+
+
+            close_model(this);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+            close_model(this);
+        }
+
+
+    });
+}
+
+
+function ajax_remove_content_cms0000(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_content_cms",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function ajax_remove_category(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_category",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+function ajax_remove_category_cms(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_category_cms",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+
+function ajax_remove_collection(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_collection",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+function ajax_remove_enter_user(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_enter_user",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+function ajax_remove_groupusers(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_groupusers",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_remove_admin1(idx) {
+
+
+    $(".loading_new").show();
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_admin",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+            $(".loading_new").hide();
+            if (_result.status == "success") {
+                $(".cltb" + idx).addClass('none').remove();
+                labelok("ok", _result.message);
+                close_model(this);
+            } else labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+            close_model(this);
+        }
+
+
+    });
+}
+
+
+
+
+function ajax_remove_admin(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_admin",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function remove_user0(elem) {
+
+
+    var idx = $(elem).attr("data-id");
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_users",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+
+
+            labelok("no", _result.message);
+            sample_linka("/admin/users", "_self");
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function remove_user(idx) {
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_users",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+
+
+            labelok("no", _result.message);
+            sample_linka("/admin/users", "_self");
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+
+function ajax_remove_users(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_users",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function remove_order(elem) {
+
+
+    var idx = $(elem).attr("data-id");
+    var tr = $(elem).attr("data-tr");
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_order_id",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+
+            $("#" + tr).slideUp().remove();
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function close_model_fun(elem) {
+    var kind = $(elem).attr("data-kind");
+
+    switch (kind) {
+        case "order": {
+
+            break;
+        }
+    }
+    close_model();
+}
+
+function ajax_remove_opion1(elem) {
+
+    var idx = $(elem).attr("data-id");
+    ajax_remove_opion(idx);
+}
+
+function ajax_remove_opion(idx = "") {
+
+    $(".loading_new").show();
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_opion",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+            $(".loading_new").hide();
+            if (_result.status == "success") {
+                $(".cltb" + idx).addClass('none').remove();
+                labelok("ok", _result.message);
+                close_model(this);
+            } else labelok("no", _result.message);
+
+
+
+        },
+        error: function (err) {
+            $(".loading_new").hide();
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+function ajax_remove_status1(elem) {
+
+    var idx = $(elem).attr("data-id");
+    ajax_remove_status(idx);
+}
+
+function ajax_remove_status(idx = "") {
+
+    $(".loading_new").show();
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_status",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+            $(".loading_new").hide();
+            if (_result.status == "success") {
+                $(".cltb" + idx).addClass('none').remove();
+                labelok("ok", _result.message);
+                close_model(this);
+            } else labelok("no", _result.message);
+
+
+
+        },
+        error: function (err) {
+            $(".loading_new").hide();
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+
+
+function ajax_remove_category_cms1(idx) {
+
+
+    $(".loading_new").show();
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_category_cms",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+            $(".loading_new").hide();
+            if (_result.status == "success") {
+                $(".cltb" + idx).addClass('none').remove();
+                labelok("ok", _result.message);
+                close_model(this);
+            } else labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+            close_model(this);
+        }
+
+
+    });
+}
+function ajax_remove_request1(idx) {
+
+
+    $(".loading_new").show();
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_request",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+            $(".loading_new").hide();
+            if (_result.status == "success") {
+                $(".cltb" + idx).addClass('none').remove();
+                labelok("ok", _result.message);
+                close_model(this);
+            } else labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+            close_model(this);
+        }
+
+
+    });
+}
+
+function remove_atiket1(id, table, kind) {
+
+
+    $(".loading_new").show();
+    $.ajax({
+        type: "post",
+        url: "/admin/remove_atiket",
+        dataType: "json",
+
+        data: { id: id, ref: kind },
+        success: function (_result) {
+            $(".loading_new").hide();
+            if (_result.status == "success") st = "ok"; else st = "no";
+            {
+                $("#" + table).slideUp().remove();
+            }
+            labelok(st, _result.message);
+            close_model(this);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+            close_model(this);
+        }
+
+
+    });
+
+}
+
+function ajax_remove3t(elem, fun) {
+
+
+    var idx = $(elem).attr("data-id");
+    var table = $(elem).attr("data-table");
+    var kind = $(elem).attr("data-kind");
+    $(".bn_accept").attr("data-id", idx);
+
+    var txt_header = "هشدار";
+    var body = 'آیا از حذف این آیتم اطمینان دارید ؟';
+    open_model(2);
+    $(".right_Model_new").html(txt_header);
+    $(".body_Model_new").html(body);
+    $(".body_Model_new").addClass("danger_body");
+
+    $(".bn_accept").click(function () {
+        fun(idx, table, kind);
+    });
+
+
+
+
+}
+function ajax_remove3(elem, fun) {
+
+
+    var idx = $(elem).attr("data-id");
+    var x = $(elem).attr("data-x");
+    var kind = $(elem).attr("data-kind");
+    $(".bn_accept").attr("data-id", idx);
+
+    var txt_header = "هشدار";
+    var body = 'آیا از حذف این آیتم اطمینان دارید ؟';
+    open_model(2);
+    $(".right_Model_new").html(txt_header);
+    $(".body_Model_new").html(body);
+    $(".body_Model_new").addClass("danger_body");
+    $(".modal-footer").show();
+
+    $(".bn_accept").click(function () {
+        fun(idx, x, kind);
+    });
+
+
+
+
+}
+
+function ajax_add_sp(kind, idx = "") {
+
+    if (idx == "") txt_header = "ایجاد";
+    else txt_header = "ویرایش";
+
+
+    open_model(1);
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/add_sp",
+        dataType: "text",
+
+        data: { kind: kind, id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_remove2(elem, fun) {
+
+
+    var idx = $(elem).attr("data-id");
+    var x = $(elem).attr("data-x");
+    $(".bn_accept").attr("data-id", idx);
+
+    var txt_header = "هشدار";
+    var body = 'آیا از حذف این آیتم اطمینان دارید ؟';
+    open_model(2);
+    $(".right_Model_new").html(txt_header);
+    $(".body_Model_new").html(body);
+    $(".body_Model_new").addClass("danger_body");
+
+    $(".bn_accept").click(function () {
+        fun(idx, x);
+    });
+
+
+
+
+}
+
+function confrim_remove_order1(ret4, config = 1) {
+
+    $(ret4).find("input[name='cancel_confirm']").val(config);
+    $(ret4).submit();
+
+}
+
+function confrim_remove_order(ret, ret2, ret3, ret4) {
+
+
+    var txt_header = "هشدار";
+    var body = ret;
+    open_model(2);
+    $(".right_Model_new").html(txt_header);
+    $(".body_Model_new").html(body);
+    $(".body_Model_new").addClass("danger_body");
+
+    $(".bn_accept").click(function () {
+        confrim_remove_order1(ret4);
+        close_model();
+    });
+
+
+
+
+}
+
+
+function ajax_remove(elem, fun) {
+
+
+    var idx = $(elem).attr("data-id");
+    $(".bn_accept").attr("data-id", idx);
+
+    if (idx == "") {
+
+        labelok("no", "موردی انتخاب نشده است");
+        return false;
+
+    }
+    var txt_header = "هشدار";
+    var body = 'آیا از حذف این آیتم اطمینان دارید ؟';
+    open_model(2);
+    $(".right_Model_new").html(txt_header);
+    $(".body_Model_new").html(body);
+    $(".body_Model_new").addClass("danger_body");
+
+    $(".bn_accept").click(function () {
+        fun(idx);
+    });
+
+
+
+
+}
+
+
+function ajax_remove_wallet(idx) {
+
+    $(".loading_new").show();
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_wallet",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+            $(".loading_new").hide();
+
+
+            if (_result.status == "success") {
+                $(".cltb" + idx).addClass('none').remove();
+                labelok("ok", _result.message);
+            } else labelok("no", _result.message);
+
+
+            close_model(this);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+            close_model(this);
+        }
+
+
+    });
+}
+
+
+function ajax_remove_tiket1(idx) {
+
+    $(".loading_new").show();
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_tiket",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+            $(".loading_new").hide();
+
+
+            if (_result.status == "success") {
+                $(".cltb" + idx).addClass('none').remove();
+                labelok("ok", _result.message);
+            } else labelok("no", _result.message);
+
+
+            close_model(this);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+            close_model(this);
+        }
+
+
+    });
+}
+
+function reload_list_ip() {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "search_list_ip",
+        dataType: "json",
+
+        data: { ip: "" },
+        success: function (_result) {
+
+
+            if (_result.status == "success") {
+                reload_ajax(_result.ret, _result.ret2);
+                $("input[name='ip']").val("");
+            } else labelok("no", _result.message);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+
+        }
+
+
+    });
+
+}
+function ajax_remove_ip(idx) {
+
+    $(".loading_new").show();
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_ip",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+            $(".loading_new").hide();
+
+
+            if (_result.status == "success") {
+                $(".cltb" + idx).addClass('none').remove();
+                labelok("ok", _result.message);
+            } else labelok("no", _result.message);
+
+
+            close_model(this);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+            close_model(this);
+        }
+
+
+    });
+}
+
+
+function ajax_remove_users1(idx) {
+
+    $(".loading_new").show();
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_users",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+            $(".loading_new").hide();
+
+
+            if (_result.status == "success") {
+                $(".cltb" + idx).addClass('none').remove();
+                labelok("ok", _result.message);
+            } else labelok("no", _result.message);
+
+
+            close_model(this);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+            close_model(this);
+        }
+
+
+    });
+}
+
+
+function ajax_remove_groupusers1(idx) {
+
+
+    $(".loading_new").show();
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_groupusers",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $(".loading_new").hide();
+            if (_result.status == "success") {
+                $(".cltb" + idx).addClass('none').remove();
+                labelok("ok", _result.message);
+                close_model(this);
+            } else labelok("no", _result.message);
+
+        },
+        error: function (err) {
+            $(".loading_new").hide();
+            close_model(this);
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_remove_enter_user1(idx) {
+
+    $(".loading_new").show();
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_enter_user",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $(".loading_new").hide();
+            if (_result.status == "success") {
+                $(".cltb" + idx).addClass('none').remove();
+                labelok("ok", _result.message);
+                close_model(this);
+            } else labelok("no", _result.message);
+        },
+        error: function (err) {
+            $(".loading_new").hide();
+            close_model(this);
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+
+function ajax_remove_discount1(idx = "") {
+
+    $(".loading_new").show();
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_remove_discount",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $(".loading_new").hide();
+            if (_result.status == "success") {
+                $(".cltb" + idx).addClass('none').remove();
+                labelok("ok", _result.message);
+                close_model(this);
+            } else labelok("no", _result.message);
+
+        },
+        error: function (err) {
+
+            $(".loading_new").hide();
+            close_model(this);
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+function ajax_remove_order1(idx = "") {
+
+    $(".loading_new").show();
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_message_admin",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+            $(".loading_new").hide();
+            if (_result.status == "success") {
+                $(".cltb" + idx).addClass('none').remove();
+                labelok("ok", _result.message);
+                close_model(this);
+            } else labelok("no", _result.message);
+
+
+
+        },
+        error: function (err) {
+            $(".loading_new").hide();
+            close_model(this);
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_remove_order(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_order",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.IdFaktor).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function ajax_remove_property_field(idx = "", deletingClients = "") {
+
+
+
+    $.ajax({
+        type: "post",
+        url: "ajax_remove_property_field",
+        dataType: "json",
+
+        data: { idx: idx },
+        success: function (_result) {
+
+            $.each(deletingClients, function (i, tutorial) {
+
+                $(".cltb" + tutorial.id).addClass('none');
+
+            });
+
+
+            labelok("no", _result.message);
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_menu(idp, idx = "") {
+
+    if (idx == "") txt_header = "ایجاد منو";
+    else txt_header = "ویرایش منو";
+
+    open_model(1);
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_menu  ",
+        dataType: "text",
+
+        data: { idp: idp, id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_creatmenu(idx = "") {
+
+    if (idx == "") txt_header = "ایجاد منو";
+    else txt_header = "ویرایش منو";
+
+    open_model();
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_creatmenu  ",
+        dataType: "text",
+
+        data: { id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+
+
+
+function ajax_message_admin(idx = "") {
+
+    sample_linka("/admin/creat_message/" + idx, "_blank");
+    return false;
+
+    if (idx == "") txt_header = "ایجاد پیام مدیریتی";
+    else txt_header = "ویرایش پیام مدیریتی";
+
+    open_model();
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_message_admin",
+        dataType: "text",
+
+        data: { id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+function ajax_add_slider(idx = "") {
+
+    if (idx == "") txt_header = "ایجاد اسلایدر";
+    else txt_header = "ویرایش اسلایدر";
+
+    open_model(1);
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/add_slider",
+        dataType: "text",
+
+        data: { id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_add_category(idx = "") {
+
+    if (idx == "") txt_header = "ایجاد دسته";
+    else txt_header = "ویرایش دسته";
+
+    open_model();
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/add_category",
+        dataType: "text",
+
+        data: { id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+function ajax_add_category_cms(idx = "") {
+
+
+    if (idx == "") sample_linka("/admin/add_category_cms", "_blank");
+    else sample_linka("/admin/add_category_cms/" + idx, "_blank");
+
+    return false;
+
+    if (idx == "") txt_header = "ایجاد دسته";
+    else txt_header = "ویرایش دسته";
+
+    open_model();
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/add_category_cms",
+        dataType: "text",
+
+        data: { id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function ajax_add_content_cms(idx = "") {
+
+
+    if (idx == "") sample_linka("/admin/add_content_cms", "_blank");
+    else sample_linka("/admin/add_content_cms/" + idx, "_blank");
+    return false;
+
+    if (idx == "") txt_header = "ایجاد مطلب";
+    else txt_header = "ویرایش مطلب";
+
+    open_model(1);
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/add_content_cms",
+        dataType: "text",
+
+        data: { id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function ajax_add_collection(idx = "") {
+
+    if (idx == "") txt_header = "ایجاد مجموعه";
+    else txt_header = "ویرایش مجموعه";
+
+    open_model();
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/add_collection",
+        dataType: "text",
+
+        data: { id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+
+function ajax_add_field_value(keyid, idx = "") {
+
+    if (idx == "") txt_header = "ایجاد مقدار";
+    else txt_header = "ویرایش مقدار";
+
+    open_model();
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/add_field_value",
+        dataType: "text",
+
+        data: { keyid: keyid, id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_add_property_field(idx = "") {
+
+
+
+    if (idx == "") txt_header = "ایجاد فیلد";
+    else txt_header = "ویرایش فیلد";
+
+    open_model();
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "ajax_property_field",
+        dataType: "text",
+
+        data: { id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+function ajax_add_set_status(idx = "") {
+
+    if (idx == "") txt_header = "ایجاد وضعیت ";
+    else txt_header = "ویرایش وضعیت";
+
+
+    open_model();
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_add_set_status",
+        dataType: "text",
+
+        data: { id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_add_set_opion(kind, idx = "") {
+
+    if (idx == "") txt_header = "ایجاد وضعیت ";
+    else txt_header = "ویرایش وضعیت";
+
+
+    open_model();
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "/admin/ajax_add_set_opion",
+        dataType: "text",
+
+        data: { kind: kind, id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_add_enter_user(idx = "") {
+
+    if (idx == "") txt_header = "ایجاد مبدا کاربر";
+    else txt_header = "ویرایش مبدا کاربر";
+
+
+    open_model();
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "ajax_add_enter_user",
+        dataType: "text",
+
+        data: { id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function ajax_add_groupusers(idx = "") {
+
+    if (idx == "") txt_header = "ایجاد نوع مشتری";
+    else txt_header = "ویرایش نوع مشتری";
+
+
+    open_model();
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "ajax_add_groupusers",
+        dataType: "text",
+
+        data: { id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+function ajax_add_admin_users(idx = "") {
+
+
+
+    if (idx == "") sample_linka("/admin/add_admin");
+    else sample_linka("/admin/add_admin/" + idx);
+
+    return false;
+
+    if (idx == "") txt_header = "ایجاد مدیر";
+    else txt_header = "ویرایش مدیر";
+
+
+    open_model(1);
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "ajax_add_admin_users",
+        dataType: "text",
+
+        data: { id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+function ajax_add_discount(idx = "") {
+
+
+    sample_linka("/admin/discount_detail/" + idx, "_blank");
+}
+
+
+function ajax_add_request(idx = "") {
+
+    if (idx == "") return false;
+
+    sample_linka("/admin/request_detail/" + idx, "_blank");
+}
+function ajax_add_wallet(idx = "") {
+
+    if (idx == "") return false;
+
+    sample_linka("/admin/wallet_detail/" + idx, "_blank");
+}
+
+function ajax_add_creadit(idx = "") {
+
+    if (idx == "") sample_linka("/admin/creat_creadit", "_blank");
+    else sample_linka("/admin/creat_creadit/" + idx, "_blank");
+
+}
+function ajax_add_tiket(idx = "") {
+
+    if (idx == "") sample_linka("/admin/creat_tiket");
+    else sample_linka("/admin/creat_tiket/" + idx, "_blank");
+}
+
+function ajax_add_ip(idx = "") {
+    sample_linka("/admin/ip_detail/" + idx, "_blank");
+
+
+}
+
+function ajax_add_users(idx = "") {
+    sample_linka("/admin/users_detail/" + idx, "_blank");
+
+    return false;
+    if (idx == "") txt_header = "ایجاد کاربر";
+    else txt_header = "ویرایش کاربر";
+
+
+    open_model(1);
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "ajax_add_users",
+        dataType: "text",
+
+        data: { id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+function ajax_add_property(idx = "") {
+    sample_linka("order/" + idx, "_blank");
+
+    return false;
+    let a = document.createElement('a');
+    a.target = '_blank';
+    a.href = "order/" + idx;
+    a.click();
+    return false;
+    var form = document.createElement("form");
+    form.method = "POST";
+    form.action = "order/" + idx;
+    form.target = "_blank";
+    document.body.appendChild(form);
+    form.submit();
+
+    return false;
+
+    if (idx == "") txt_header = "ایجاد سفارش";
+    else txt_header = "ویرایش سفارش";
+
+
+    open_model(1);
+    $(".right_Model_new").html(txt_header);
+
+    $.ajax({
+        type: "post",
+        url: "ajax_add_property",
+        dataType: "text",
+
+        data: { id: idx },
+        success: function (result) {
+
+            $(".body_Model_new").html(result);
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
+
+
+
+
+function reload_property_field(page, ipp, reload_page = 1) {
+
+
+    $(".paneltoolsn").html("");
+
+    $.ajax({
+
+
+
+        type: "POST",
+        url: "reload_property_field",//property_fetch
+        dataType: "text",
+        async: false,
+        data: { page: page, ipp: ipp },
+        success: function (result, status, xhr) {
+
+            $(".sectionpageorder").html(result.pagesresult);
+            $(".paneltoolsn").html(result.property);
+
+
+        },
+        error: function (err) {
+
+            alert("err_new:" + err.responseText);
+        }
+
+
+    });
+}
+
+function ajax_tbl(page, ipp, reload_page = 1) {
+    alert("pp");
+    $(".paneltoolsn").html("");
+
+
+
+    $.ajax({
+
+
+
+        type: "POST",
+        url: "property_fetch",//property_fetch
+        dataType: "json",
+        async: false,
+        data: { page: page, ipp: ipp },
+        success: function (result, status, xhr) {
+            alert(result.property);
+            //if(reload_page==1)
+            console.log(result.property);
+            $(".sectionpageorder").html(result.pagesresult);
+            $(".paneltoolsn").html(result.property);
+
+
+        },
+        error: function (err) {
+
+            alert(err.responseText);
+        }
+
+
+    });
+}
